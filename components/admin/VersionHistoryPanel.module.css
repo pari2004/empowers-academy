@@ -1,0 +1,61 @@
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  border-bottom: 1px solid var(--adm-border);
+  padding: 10px 0;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+
+.meta {
+  color: var(--adm-text-faint);
+  font-size: 12px;
+}
+
+.diff {
+  margin-top: 10px;
+  background: var(--adm-bg);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.diffRow {
+  display: grid;
+  grid-template-columns: 120px 1fr 1fr;
+  gap: 8px;
+  font-size: 11.5px;
+  padding: 4px 0;
+  border-bottom: 1px dashed var(--adm-border);
+}
+
+.diffRow:last-child {
+  border-bottom: none;
+}
+
+.diffField {
+  font-weight: 600;
+  color: var(--adm-text-soft);
+}
+
+.diffBefore {
+  color: #dc2626;
+  word-break: break-word;
+}
+
+.diffAfter {
+  color: #16a34a;
+  word-break: break-word;
+}

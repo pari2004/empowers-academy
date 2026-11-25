@@ -1,0 +1,44 @@
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid var(--adm-border);
+  background: var(--adm-surface);
+  color: var(--adm-text-soft);
+  box-shadow: var(--adm-shadow);
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
+}
+
+.toggle svg {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.toggle:hover {
+  color: var(--adm-primary);
+  border-color: var(--adm-primary);
+  background: var(--adm-primary-soft);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.18);
+}
+
+.toggle:hover svg {
+  transform: rotate(20deg);
+}
+
+.toggle:active {
+  transform: translateY(0);
+}
+
+.toggle:focus-visible {
+  outline: 2px solid var(--adm-primary);
+  outline-offset: 2px;
+}

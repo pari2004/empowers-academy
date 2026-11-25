@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090b18" />
+      <stop offset="50%" stop-color="#1e102f" />
+      <stop offset="100%" stop-color="#091b2c" />
+    </linearGradient>
+    <radialGradient id="purpleGlow" cx="25%" cy="35%" r="55%">
+      <stop offset="0%" stop-color="#c084fc" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#c084fc" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="cyanGlow" cx="80%" cy="55%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="50%" stop-color="#e879f9" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+  </defs>
+
+  <style>
+    .brand-title { font-family: system-ui, -apple-system, sans-serif; font-weight: 800; fill: #ffffff; font-size: 20px; letter-spacing: 1px; }
+    .brand-sub { font-family: system-ui, -apple-system, sans-serif; font-weight: 700; fill: #e2e8f0; font-size: 15px; }
+    .badge { font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 1.5px; fill: #ffffff; }
+    .hero-title { font-family: system-ui, -apple-system, sans-serif; font-weight: 900; font-size: 34px; fill: url(#titleGrad); letter-spacing: -0.5px; }
+    .hero-subtitle { font-family: system-ui, -apple-system, sans-serif; font-weight: 400; font-size: 15px; fill: #94a3b8; }
+    .meta-text { font-family: system-ui, -apple-system, sans-serif; font-weight: 600; font-size: 12px; fill: #cbd5e1; }
+    .node-text { font-family: system-ui, -apple-system, sans-serif; font-weight: 600; font-size: 12px; fill: #e2e8f0; }
+  </style>
+
+  <!-- Background -->
+  <rect width="1200" height="400" rx="16" fill="url(#bgGrad)" />
+  <rect width="1200" height="400" rx="16" fill="url(#purpleGlow)" />
+  <rect width="1200" height="400" rx="16" fill="url(#cyanGlow)" />
+
+  <!-- Logo (Empowers Academy) -->
+  <g transform="translate(60, 42)">
+    <circle cx="12" cy="12" r="12" fill="#d946ef" />
+    <circle cx="12" cy="12" r="6" fill="#06b6d4" />
+    <text x="36" y="17" class="brand-title">empowers</text>
+    <text x="145" y="17" class="brand-sub">Academy</text>
+  </g>
+
+  <!-- Category Badge -->
+  <g transform="translate(60, 95)">
+    <rect width="250" height="28" rx="14" fill="#a21caf" />
+    <text x="16" y="18" class="badge">FORWARD DEPLOYED AI</text>
+  </g>
+
+  <!-- Title & Subtitle -->
+  <text x="60" y="175" class="hero-title">FORWARD DEPLOYED ENGINEERING</text>
+  <text x="60" y="212" class="hero-subtitle">Become the kind of engineer enterprise teams embed directly to build &amp; ship production AI in the field.</text>
+
+  <!-- Meta Chips at Bottom -->
+  <g transform="translate(60, 290)">
+    <g transform="translate(0, 0)">
+      <rect width="125" height="34" rx="17" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <text x="35" y="21" class="meta-text">6 Months</text>
+    </g>
+    <g transform="translate(140, 0)">
+      <rect width="130" height="34" rx="17" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <text x="36" y="21" class="meta-text">Live Online</text>
+    </g>
+    <g transform="translate(285, 0)">
+      <rect width="135" height="34" rx="17" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <text x="34" y="21" class="meta-text">Mentor-Led</text>
+    </g>
+    <g transform="translate(435, 0)">
+      <rect width="175" height="34" rx="17" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <text x="38" y="21" class="meta-text">~8–10 Learners/Cohort</text>
+    </g>
+  </g>
+
+  <!-- Right Side Graphic Illustration -->
+  <g transform="translate(760, 50)">
+    <rect width="380" height="300" rx="20" fill="#0f172a" stroke="#1e293b" stroke-width="1.5" opacity="0.9" />
+
+    <g transform="translate(190, 150)">
+      <circle cx="0" cy="0" r="65" fill="none" stroke="#e879f9" stroke-width="1.5" stroke-dasharray="6 6" />
+      <circle cx="0" cy="0" r="45" fill="#701a75" stroke="#f0abfc" stroke-width="2" />
+      <path d="M -12 -10 L 0 -22 L 12 -10 L 6 -10 L 6 15 L -6 15 L -6 -10 Z" fill="#e879f9" />
+    </g>
+
+    <g transform="translate(30, 45)">
+      <rect width="140" height="32" rx="8" fill="#1e293b" stroke="#e879f9" stroke-width="1" />
+      <circle cx="16" cy="16" r="4" fill="#e879f9" />
+      <text x="28" y="20" class="node-text">Field Deployment</text>
+    </g>
+    <g transform="translate(210, 45)">
+      <rect width="140" height="32" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="1" />
+      <circle cx="16" cy="16" r="4" fill="#38bdf8" />
+      <text x="28" y="20" class="node-text">System Design</text>
+    </g>
+    <g transform="translate(20, 225)">
+      <rect width="165" height="32" rx="8" fill="#1e293b" stroke="#34d399" stroke-width="1" />
+      <circle cx="16" cy="16" r="4" fill="#34d399" />
+      <text x="28" y="20" class="node-text">Rapid Prototyping</text>
+    </g>
+    <g transform="translate(200, 225)">
+      <rect width="150" height="32" rx="8" fill="#1e293b" stroke="#f43f5e" stroke-width="1" />
+      <circle cx="16" cy="16" r="4" fill="#f43f5e" />
+      <text x="28" y="20" class="node-text">Enterprise AI</text>
+    </g>
+  </g>
+</svg>

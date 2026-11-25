@@ -1,0 +1,43 @@
+.row {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+}
+
+.row .input {
+  flex: 1;
+  min-width: 0;
+}
+
+.toggle {
+  display: inline-flex;
+  flex: 0 0 auto;
+  padding: 2px;
+  border: 1px solid var(--admin-border, #d7dbe3);
+  border-radius: 8px;
+  background: var(--admin-surface-2, #f3f4f7);
+}
+
+.toggleBtn {
+  padding: 0 12px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--admin-text-muted, #5b6472);
+  font: inherit;
+  font-size: 13px;
+  line-height: 1;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.toggleBtn:hover {
+  color: var(--admin-text, #1b1f27);
+}
+
+.toggleBtn[aria-pressed="true"] {
+  background: var(--admin-surface, #fff);
+  color: var(--admin-text, #1b1f27);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.08);
+  font-weight: 600;
+}

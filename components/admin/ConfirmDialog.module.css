@@ -1,0 +1,62 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 150;
+}
+
+.dialog {
+  width: 100%;
+  max-width: 380px;
+  background: var(--adm-surface);
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.title {
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+
+.message {
+  margin: 0 0 20px;
+  font-size: 13.5px;
+  color: var(--adm-text-soft);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.cancel,
+.confirm,
+.confirmDanger {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  border: 1px solid var(--adm-border);
+}
+
+.cancel {
+  background: transparent;
+  color: var(--adm-text-soft);
+}
+
+.confirm {
+  background: var(--adm-primary);
+  color: white;
+  border-color: transparent;
+}
+
+.confirmDanger {
+  background: var(--adm-danger);
+  color: white;
+  border-color: transparent;
+}

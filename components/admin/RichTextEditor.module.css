@@ -1,0 +1,82 @@
+.wrap {
+  border: 1px solid var(--adm-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 8px;
+  background: var(--adm-bg);
+  border-bottom: 1px solid var(--adm-border);
+}
+
+.toolbar button {
+  border: 1px solid var(--adm-border);
+  background: var(--adm-surface);
+  color: var(--adm-text-soft);
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.toolbar button:hover {
+  background: var(--adm-primary-soft);
+}
+
+.active {
+  background: var(--adm-primary-soft) !important;
+  color: var(--adm-primary) !important;
+  border-color: var(--adm-primary) !important;
+}
+
+.content {
+  padding: 16px;
+  min-height: 260px;
+  font-size: 14px;
+  color: var(--adm-text);
+}
+
+.content :global(.ProseMirror) {
+  outline: none;
+}
+
+.content :global(p.is-editor-empty:first-child::before) {
+  content: attr(data-placeholder);
+  color: var(--adm-text-faint);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+.content :global(table) {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.content :global(td),
+.content :global(th) {
+  border: 1px solid var(--adm-border);
+  padding: 6px 10px;
+}
+
+.content :global(img) {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.content :global(blockquote) {
+  border-left: 3px solid var(--adm-primary);
+  padding-left: 12px;
+  color: var(--adm-text-soft);
+}
+
+.content :global(pre) {
+  background: var(--adm-bg);
+  padding: 12px;
+  border-radius: 8px;
+  overflow-x: auto;
+}

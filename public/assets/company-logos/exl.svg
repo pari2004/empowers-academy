@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 48" width="120" height="48">
+  
+    <!-- EXL Service -->
+    <g transform="translate(15, 11)">
+      <text x="8" y="22" font-family="'Space Grotesk', system-ui, sans-serif" font-size="24" font-weight="900" fill="#002855" letter-spacing="1">EXL</text>
+      <circle cx="68" cy="11" r="5" fill="#F58220"/>
+    </g>
+  
+</svg>

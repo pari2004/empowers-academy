@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 48" width="140" height="48">
+  
+    <!-- Maersk 7-pointed Star -->
+    <g transform="translate(10, 10)">
+      <rect x="2" y="2" width="22" height="22" rx="3" fill="#42B0D5"/>
+      <polygon points="13,4 15,10 21,9 18,14 21,19 15,18 13,24 11,18 5,19 8,14 5,9 11,10" fill="#ffffff"/>
+      <text x="30" y="19" font-family="'Arial Black', sans-serif" font-size="16" font-weight="900" fill="#111111" letter-spacing="1">MAERSK</text>
+    </g>
+  
+</svg>

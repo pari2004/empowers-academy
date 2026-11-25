@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 48" width="130" height="48">
+  
+    <!-- Virtusa Diamond -->
+    <g transform="translate(14, 11)">
+      <polygon points="12,3 21,13 12,23 3,13" fill="#ED1C24"/>
+      <polygon points="12,6 18,13 12,20 6,13" fill="#ffffff"/>
+      <polygon points="12,9 15,13 12,17 9,13" fill="#ED1C24"/>
+      <text x="28" y="19" font-family="'Space Grotesk', system-ui, sans-serif" font-size="18" font-weight="700" fill="#111111" letter-spacing="-0.4">virtusa</text>
+    </g>
+  
+</svg>

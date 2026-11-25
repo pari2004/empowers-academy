@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 48" width="130" height="48">
+  
+    <!-- SoftServe -->
+    <g transform="translate(12, 12)">
+      <path d="M4 17 C6 8 16 8 18 13 C20 18 28 18 30 11" fill="none" stroke="#F58220" stroke-width="4" stroke-linecap="round"/>
+      <text x="36" y="19" font-family="'Space Grotesk', system-ui, sans-serif" font-size="16" font-weight="700" fill="#0A2540" letter-spacing="-0.3">softserve</text>
+    </g>
+  
+</svg>

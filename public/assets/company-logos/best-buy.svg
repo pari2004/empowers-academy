@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 48" width="130" height="48">
+  
+    <!-- Best Buy Yellow Price Tag -->
+    <g transform="translate(12, 10)">
+      <polygon points="2,8 14,2 26,10 14,24 2,18" fill="#FFE000"/>
+      <circle cx="6" cy="11" r="2" fill="#111111"/>
+      <text x="32" y="15" font-family="'Arial Black', sans-serif" font-size="13" font-weight="900" fill="#111111">BEST</text>
+      <text x="32" y="25" font-family="'Arial Black', sans-serif" font-size="13" font-weight="900" fill="#111111">BUY</text>
+    </g>
+  
+</svg>

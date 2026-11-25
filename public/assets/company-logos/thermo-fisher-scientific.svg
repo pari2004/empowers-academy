@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 48" width="150" height="48">
+  
+    <!-- Thermo Fisher Scientific -->
+    <g transform="translate(8, 11)">
+      <polygon points="2,4 18,4 12,14" fill="#E2231A"/>
+      <polygon points="12,14 18,24 6,24" fill="#111111"/>
+      <text x="26" y="15" font-family="'Space Grotesk', system-ui, sans-serif" font-size="11" font-weight="800" fill="#E2231A">Thermo Fisher</text>
+      <text x="26" y="24" font-family="'Space Grotesk', system-ui, sans-serif" font-size="9.5" font-weight="700" fill="#111111">SCIENTIFIC</text>
+    </g>
+  
+</svg>

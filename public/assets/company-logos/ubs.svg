@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 48" width="130" height="48">
+  
+    <!-- UBS 3 Keys -->
+    <g transform="translate(15, 11)">
+      <g stroke="#E60000" stroke-width="2" fill="none">
+        <circle cx="10" cy="8" r="4"/><line x1="10" y1="12" x2="10" y2="22"/>
+        <circle cx="18" cy="8" r="4"/><line x1="18" y1="12" x2="18" y2="22"/>
+        <circle cx="26" cy="8" r="4"/><line x1="26" y1="12" x2="26" y2="22"/>
+      </g>
+      <text x="42" y="21" font-family="'Space Grotesk', system-ui, sans-serif" font-size="22" font-weight="900" fill="#111111" letter-spacing="1">UBS</text>
+    </g>
+  
+</svg>

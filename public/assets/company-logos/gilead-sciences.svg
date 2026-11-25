@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 48" width="140" height="48">
+  
+    <!-- Gilead Sciences -->
+    <g transform="translate(10, 10)">
+      <path d="M4 14 C4 6 12 3 20 5 L17 19 C11 22 4 19 4 14 Z" fill="#A81327"/>
+      <text x="28" y="19" font-family="'Space Grotesk', system-ui, sans-serif" font-size="16" font-weight="800" fill="#111111" letter-spacing="0.5">GILEAD</text>
+    </g>
+  
+</svg>

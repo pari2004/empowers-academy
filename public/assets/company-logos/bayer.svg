@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 48" width="130" height="48">
+  
+    <!-- Bayer Cross Circle -->
+    <g transform="translate(14, 10)">
+      <circle cx="13" cy="13" r="11" fill="none" stroke="#009900" stroke-width="2.5"/>
+      <text x="13" y="11" font-family="'Space Grotesk', system-ui, sans-serif" font-size="6.5" font-weight="900" fill="#009900" text-anchor="middle">BAYER</text>
+      <text x="13" y="18" font-family="'Space Grotesk', system-ui, sans-serif" font-size="6.5" font-weight="900" fill="#009900" text-anchor="middle">CROSS</text>
+      <text x="32" y="20" font-family="'Space Grotesk', system-ui, sans-serif" font-size="18" font-weight="800" fill="#009900">Bayer</text>
+    </g>
+  
+</svg>

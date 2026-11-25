@@ -1,0 +1,23 @@
+.item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--adm-bg);
+  border: 1px solid var(--adm-border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+}
+
+.handle {
+  cursor: grab;
+  color: var(--adm-text-faint);
+  font-size: 16px;
+  touch-action: none;
+  user-select: none;
+}
+
+.itemBody {
+  flex: 1;
+  min-width: 0;
+}

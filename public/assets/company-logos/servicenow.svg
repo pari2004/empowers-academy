@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 48" width="150" height="48">
+  
+    <!-- ServiceNow Aperture & Wordmark -->
+    <g transform="translate(10, 10)">
+      <circle cx="14" cy="14" r="13" fill="none" stroke="#81B5A1" stroke-width="4.5" stroke-dasharray="72" stroke-dashoffset="12"/>
+      <circle cx="14" cy="14" r="5" fill="#81B5A1"/>
+      <text x="36" y="19" font-family="'Space Grotesk', system-ui, sans-serif" font-size="16" font-weight="700" fill="#000a12" letter-spacing="-0.5">servicenow</text>
+    </g>
+  
+</svg>

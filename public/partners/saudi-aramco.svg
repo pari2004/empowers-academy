@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 80" width="340" height="80">
+  <g>
+    <!-- Aramco Starburst Emblem -->
+    <circle cx="40" cy="40" r="24" fill="#00A3E0"/>
+    <circle cx="40" cy="40" r="12" fill="#002D62"/>
+    <circle cx="40" cy="40" r="5" fill="#8CDBF3"/>
+    <text x="80" y="44" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" font-size="24" letter-spacing="1" fill="#002D62">saudi aramco</text>
+    <text x="80" y="60" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="600" font-size="12" letter-spacing="2" fill="#00A3E0">aramco</text>
+  </g>
+</svg>

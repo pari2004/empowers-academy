@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 48" width="150" height="48">
+  
+    <!-- Bank of America Flag Grid -->
+    <g transform="translate(8, 11)">
+      <rect x="2" y="4" width="8" height="4" fill="#012169"/>
+      <rect x="12" y="4" width="8" height="4" fill="#E31B23"/>
+      <rect x="2" y="10" width="8" height="4" fill="#E31B23"/>
+      <rect x="12" y="10" width="8" height="4" fill="#012169"/>
+      <rect x="2" y="16" width="8" height="4" fill="#012169"/>
+      <rect x="12" y="16" width="8" height="4" fill="#E31B23"/>
+      <text x="28" y="18" font-family="'Space Grotesk', system-ui, sans-serif" font-size="12" font-weight="800" fill="#012169" letter-spacing="-0.3">Bank of America</text>
+    </g>
+  
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 48" width="140" height="48">
+  
+    <!-- Stellantis Constellation -->
+    <g transform="translate(10, 12)">
+      <text x="60" y="17" font-family="'Space Grotesk', system-ui, sans-serif" font-size="16" font-weight="800" fill="#0A1C40" text-anchor="middle" letter-spacing="2">STELLANTIS</text>
+      <circle cx="60" cy="5" r="1.5" fill="#0072CE"/>
+      <circle cx="50" cy="7" r="1.2" fill="#0072CE"/>
+      <circle cx="70" cy="7" r="1.2" fill="#0072CE"/>
+    </g>
+  
+</svg>

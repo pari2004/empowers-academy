@@ -1,0 +1,87 @@
+.heading {
+  font-size: 22px;
+  margin: 0 0 20px;
+}
+
+.statGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.chartGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.activityCard {
+  background: var(--adm-surface);
+  border: 1px solid var(--adm-border);
+  border-radius: var(--adm-radius);
+  padding: 20px 22px;
+  box-shadow: var(--adm-shadow);
+}
+
+.activityHeading {
+  font-size: 14px;
+  margin: 0 0 14px;
+}
+
+.empty {
+  color: var(--adm-text-faint);
+  font-size: 13px;
+}
+
+.activityList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.activityItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--adm-border);
+  font-size: 13px;
+}
+
+.activityItem:last-child {
+  border-bottom: none;
+}
+
+.activityAction {
+  font-weight: 600;
+}
+
+.activityMeta {
+  color: var(--adm-text-faint);
+  font-size: 12px;
+}
+
+.miniTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.miniTable th {
+  text-align: left;
+  color: var(--adm-text-faint);
+  font-weight: 500;
+  font-size: 12px;
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--adm-border);
+}
+
+.miniTable td {
+  padding: 8px;
+  border-bottom: 1px solid var(--adm-border);
+}
+
+.miniTable tr:last-child td {
+  border-bottom: none;
+}

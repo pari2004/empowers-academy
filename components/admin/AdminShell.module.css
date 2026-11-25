@@ -1,0 +1,24 @@
+.shell {
+  min-height: 100vh;
+  background-color: var(--adm-bg);
+  color: var(--adm-text);
+}
+
+.content {
+  margin-left: var(--adm-sidebar-w);
+  transition: margin-left 0.15s ease;
+  min-height: 100vh;
+  background-color: var(--adm-bg);
+  color: var(--adm-text);
+}
+
+.contentCollapsed {
+  margin-left: var(--adm-sidebar-w-collapsed);
+}
+
+.main {
+  padding: 28px;
+  max-width: 1400px;
+  background-color: var(--adm-bg);
+  color: var(--adm-text);
+}

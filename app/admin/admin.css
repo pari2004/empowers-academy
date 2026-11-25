@@ -1,0 +1,117 @@
+/* Admin panel design system — deliberately separate from app/globals.css so the
+   public site's glassmorphism theme is never touched by admin work. */
+
+:root,
+:root[data-theme="light"],
+html[data-theme="light"] {
+  --adm-bg: #f8fafc;
+  --adm-surface: #ffffff;
+  --adm-border: #cbd5e1;
+  --adm-text: #0f172a;
+  --adm-text-soft: #334155;
+  --adm-text-faint: #475569;
+  --adm-primary: #4f46e5;
+  --adm-primary-soft: #eef2ff;
+  --adm-danger: #dc2626;
+  --adm-success: #16a34a;
+  --adm-warning: #d97706;
+  --adm-radius: 12px;
+  --adm-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --adm-sidebar-w: 260px;
+  --adm-sidebar-w-collapsed: 76px;
+  --adm-topbar-h: 64px;
+}
+
+:root[data-theme="dark"],
+html[data-theme="dark"] {
+  --adm-bg: #0b0d12;
+  --adm-surface: #12151c;
+  --adm-border: #232733;
+  --adm-text: #f8fafc;
+  --adm-text-soft: #cbd5e1;
+  --adm-text-faint: #94a3b8;
+  --adm-primary: #818cf8;
+  --adm-primary-soft: #1c1f3a;
+  --adm-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --adm-bg: #0b0d12;
+    --adm-surface: #12151c;
+    --adm-border: #232733;
+    --adm-text: #f8fafc;
+    --adm-text-soft: #cbd5e1;
+    --adm-text-faint: #94a3b8;
+    --adm-primary: #818cf8;
+    --adm-primary-soft: #1c1f3a;
+    --adm-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.4);
+  }
+}
+
+.adm-root {
+  min-height: 100vh;
+  background-color: var(--adm-bg) !important;
+  color: var(--adm-text) !important;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.adm-root * {
+  box-sizing: border-box;
+}
+
+.adm-root a {
+  color: var(--adm-text-soft);
+  text-decoration: none;
+}
+
+.adm-root a:hover {
+  color: var(--adm-primary);
+}
+
+.adm-root button {
+  font-family: inherit;
+  color: var(--adm-text);
+}
+
+.adm-root h1,
+.adm-root h2,
+.adm-root h3,
+.adm-root h4,
+.adm-root h5,
+.adm-root h6 {
+  color: var(--adm-text) !important;
+}
+
+.adm-root p,
+.adm-root span,
+.adm-root div,
+.adm-root li {
+  color: inherit;
+}
+
+.adm-root table th {
+  color: var(--adm-text-faint) !important;
+}
+
+.adm-root table td {
+  color: var(--adm-text) !important;
+}
+
+.adm-root label {
+  color: var(--adm-text) !important;
+}
+
+.adm-root input,
+.adm-root select,
+.adm-root textarea {
+  color: var(--adm-text) !important;
+  background-color: var(--adm-surface) !important;
+  border-color: var(--adm-border) !important;
+}
+
+.adm-root input::placeholder,
+.adm-root textarea::placeholder {
+  color: var(--adm-text-faint) !important;
+  opacity: 0.8;
+}

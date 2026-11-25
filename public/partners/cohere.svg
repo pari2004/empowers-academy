@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width="320" height="80">
+  <g fill="#39594C">
+    <path d="M 20 40 C 20 22, 35 18, 48 18 C 58 18, 68 24, 68 40 C 68 56, 58 62, 48 62 C 35 62, 20 56, 20 40 Z M 35 40 C 35 49, 41 52, 48 52 C 55 52, 53 49, 53 40 C 53 31, 55 28, 48 28 C 41 28, 35 31, 35 40 Z" fill="#39594C"/>
+    <text x="85" y="52" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" font-size="34" letter-spacing="2">cohere</text>
+  </g>
+</svg>

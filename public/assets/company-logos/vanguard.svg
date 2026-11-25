@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 48" width="140" height="48">
+  
+    <!-- Vanguard Ship -->
+    <g transform="translate(12, 10)">
+      <path d="M6 18 C12 22 20 22 24 16 L22 14 L14 14 Z M14 5 L14 14 L8 14 Z M16 4 L22 14 L16 14 Z" fill="#9E1B32"/>
+      <text x="32" y="19" font-family="'Space Grotesk', system-ui, sans-serif" font-size="16" font-weight="800" fill="#9E1B32" letter-spacing="-0.3">Vanguard</text>
+    </g>
+  
+</svg>

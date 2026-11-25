@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 48" width="130" height="48">
+  
+    <!-- JD.com -->
+    <g transform="translate(15, 11)">
+      <circle cx="13" cy="13" r="10" fill="#D6000F"/>
+      <text x="13" y="17" font-family="'Arial Black', sans-serif" font-size="9" font-weight="900" fill="#ffffff" text-anchor="middle">JD</text>
+      <text x="30" y="20" font-family="'Arial Black', sans-serif" font-size="18" font-weight="900" fill="#D6000F">JD.COM</text>
+    </g>
+  
+</svg>

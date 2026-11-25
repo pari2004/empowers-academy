@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 48" width="130" height="48">
+  
+    <!-- Sanofi Soaring Bird -->
+    <g transform="translate(14, 10)">
+      <circle cx="7" cy="13" r="3" fill="#7A00E6"/>
+      <circle cx="14" cy="7" r="3.5" fill="#7A00E6"/>
+      <circle cx="21" cy="13" r="4" fill="#7A00E6"/>
+      <text x="32" y="20" font-family="'Space Grotesk', system-ui, sans-serif" font-size="18" font-weight="700" fill="#111111" letter-spacing="-0.4">sanofi</text>
+    </g>
+  
+</svg>

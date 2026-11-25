@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 48" width="150" height="48">
+  
+    <!-- Quest Diagnostics -->
+    <g transform="translate(8, 10)">
+      <circle cx="10" cy="13" r="8" fill="#008752"/>
+      <circle cx="16" cy="13" r="8" fill="#00A3AD" opacity="0.8"/>
+      <text x="30" y="15" font-family="'Space Grotesk', system-ui, sans-serif" font-size="12" font-weight="800" fill="#008752">Quest</text>
+      <text x="30" y="24" font-family="'Space Grotesk', system-ui, sans-serif" font-size="10.5" font-weight="700" fill="#111111">Diagnostics</text>
+    </g>
+  
+</svg>

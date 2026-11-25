@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 80" width="340" height="80">
+  <g>
+    <!-- SentinelOne Emblem -->
+    <path d="M 25 18 L 50 18 L 65 40 L 50 62 L 25 62 L 40 40 Z" fill="#6A1B9A"/>
+    <path d="M 45 28 L 65 28 L 75 40 L 65 52 L 45 52 L 55 40 Z" fill="#9C27B0"/>
+    <text x="90" y="52" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" font-size="30" letter-spacing="1.5" fill="#212121">Sentinel<tspan fill="#6A1B9A">One</tspan></text>
+  </g>
+</svg>

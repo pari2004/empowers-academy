@@ -1,0 +1,107 @@
+<!-- Template File Name: authentication/login/identity_source/identity_source_selection/combined_login_selection.html   Theme ID: default -->
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<!-- IBMid UX Template Version 5.3 -->
+	<meta charset="UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<!-- Add meta tag to consistently detect the width on an iPad at 768px -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="SHORTCUT ICON" href="//www.ibm.com/favicon.ico">
+	<!-- <link rel="canonical" href="http://www.ibm.com/REPLACEME"> -->
+	<meta name="robots" content="noindex,nofollow">
+	<meta name="description" content="IBM id Sign-in Template refresh">
+	<meta name="keywords" content="Sign-in Page IBM id">
+
+	<meta name="geo.country" content="US">
+	<meta name="dcterms.date" content="2014-07-23">
+	<meta name="dcterms.rights" content="&copy; Copyright IBM Corp. 2014">
+	<script type="text/javascript">
+		function getTargetUrl(){
+			var targetUrl = "https://www.ibm.com/";
+			var ref = document.referrer;
+			if(getQuerystring("Target") !==""){
+				targetUrl = decodeURIComponent(getQuerystring("Target"));
+			}else if(ref){
+				targetUrl = document.referrer;
+			}
+			return targetUrl;
+		}
+		function getIdParam(){
+			var queryString ="",id=getQuerystring("Id");
+			if(id && !(/[<>;"()]/i.test(decodeURIComponent(id)))){
+				queryString ="&Id="+id;
+			}
+			var login_hint=getQuerystring("login_hint");
+			if(login_hint && !(/[<>;"()]/i.test(decodeURIComponent(login_hint)))){
+				queryString +="&login_hint="+login_hint;
+			}
+			return queryString;
+		}
+		function getQuerystring(key)
+		{
+			key = key.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+			var regex = new RegExp("[\\?&]"+key+"=([^&#]*)");
+			var qs = regex.exec(window.location.href);
+			if(qs == null)
+				return "";
+			else
+				return qs[1];
+		}
+		function setTargetUrl() {
+			var targetUrl = getTargetUrl();
+			var cookieName = 'idaasRedirectUrl';
+			document.cookie = cookieName +"=" + targetUrl + ";path=/";
+		}
+		function setClientIdInCookie() {
+			var clientId = getQuerystring('client_id');
+			if (clientId){
+				document.cookie = "iisvcid=" + clientId + ";path=/";
+			}
+		}
+		function oidcTargetUrlQueryParam(){
+			if(getQuerystring("Target") !==""){
+				return "&Target=" + getQuerystring("Target");
+			}else{
+				return ""
+			}
+		}
+		function setPromptLoginFlag(){
+			try {
+				if(getQuerystring("prompt")){
+					sessionStorage.setItem('prompt', getQuerystring("prompt"))
+				}else if(sessionStorage.getItem('prompt')){
+					sessionStorage.removeItem('prompt')
+				}
+			}catch (e) {
+				console.error('Session storage not supported. prompt login won\'t work');
+			}
+
+		}
+		setTargetUrl();
+		setClientIdInCookie();
+		setPromptLoginFlag();
+		window.location.href="https://"+window.location.host+"/authsvc/mtfim/sps/authsvc?PolicyId=urn:ibm:security:authentication:asf:basicldapuser"+getIdParam()+oidcTargetUrlQueryParam();
+
+	</script>
+</head>
+
+<body id="ibm-com" class="ibm-type" >
+<noscript>
+	<div id="processing" style="display:block;">
+		<!-- Overlay for loading submissions -->
+		<div class="ibm-columns">
+			<div class="ibm-col-6-2">
+				&nbsp;
+			</div>
+			<div class="ibm-col-6-2">
+				<div class="ibm-signin-card ibm-col-6-2 reset" id="ibm-signin-js-err">
+					<h3 style="margin-bottom: 35px;font-weight: bold;">Our apologies, this site requires JavaScript to function.</h3>
+					<span style="font-size: 17px;">Please enable JavaScript or use a different browser. If you still continue to experience this error, please <a target="_blank" href="http://www.ibm.com/account/profile/us?page=reghelpdesk">contact our help desk</a></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</noscript>
+<script type="text/javascript"  src="/q-H238uuPe/TlIfuA/isko/9ua30SSVGrSpbrYED1/Z0xzNEUp/Cmx/hLi46HlM"></script></body>
+</html>

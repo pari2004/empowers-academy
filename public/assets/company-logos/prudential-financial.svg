@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 48" width="140" height="48">
+  
+    <!-- Prudential Rock -->
+    <g transform="translate(10, 10)">
+      <path d="M4 22 L8 14 L12 8 L18 10 L24 22 Z M10 14 L14 16 L18 12" fill="#003366" stroke="#003366" stroke-linejoin="round"/>
+      <text x="30" y="20" font-family="'Space Grotesk', system-ui, sans-serif" font-size="16" font-weight="800" fill="#003366" letter-spacing="-0.3">Prudential</text>
+    </g>
+  
+</svg>

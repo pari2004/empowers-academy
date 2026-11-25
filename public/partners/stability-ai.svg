@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 80" width="360" height="80">
+  <g fill="#A020F0">
+    <circle cx="35" cy="40" r="20"/>
+    <circle cx="55" cy="30" r="14" fill="#7B2CBF"/>
+    <text x="85" y="52" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" font-size="28" letter-spacing="1.5" fill="#A020F0">Stability AI</text>
+  </g>
+</svg>

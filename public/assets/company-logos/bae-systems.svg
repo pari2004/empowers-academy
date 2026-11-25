@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 48" width="140" height="48">
+  
+    <!-- BAE Systems Red Arrow -->
+    <g transform="translate(10, 11)">
+      <polygon points="4,6 18,13 4,20" fill="#ED1B2D"/>
+      <text x="24" y="15" font-family="'Space Grotesk', system-ui, sans-serif" font-size="13" font-weight="900" fill="#111111">BAE</text>
+      <text x="24" y="24" font-family="'Space Grotesk', system-ui, sans-serif" font-size="9" font-weight="800" fill="#ED1B2D">SYSTEMS</text>
+    </g>
+  
+</svg>

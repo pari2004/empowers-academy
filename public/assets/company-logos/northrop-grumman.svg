@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 48" width="150" height="48">
+  
+    <!-- Northrop Grumman Chevron -->
+    <g transform="translate(8, 10)">
+      <path d="M4 18 L14 6 L24 18 L19 18 L14 11 L9 18 Z" fill="#003366"/>
+      <text x="30" y="14" font-family="'Space Grotesk', system-ui, sans-serif" font-size="10.5" font-weight="900" fill="#003366">NORTHROP</text>
+      <text x="30" y="24" font-family="'Space Grotesk', system-ui, sans-serif" font-size="10.5" font-weight="900" fill="#003366">GRUMMAN</text>
+    </g>
+  
+</svg>

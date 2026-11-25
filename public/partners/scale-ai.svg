@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80" width="300" height="80">
+  <g fill="#6366F1">
+    <path d="M 20 25 L 60 25 L 60 37 L 35 37 L 35 43 L 60 43 L 60 55 L 20 55 Z" fill="#6366F1"/>
+    <text x="75" y="52" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="900" font-size="32" letter-spacing="2">Scale</text>
+  </g>
+</svg>

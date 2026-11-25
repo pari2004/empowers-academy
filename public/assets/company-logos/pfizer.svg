@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 48" width="140" height="48">
+  
+    <!-- Pfizer Oval & Helix -->
+    <g transform="translate(12, 10)">
+      <ellipse cx="14" cy="13" rx="12" ry="10" fill="#0000FF"/>
+      <path d="M8 15 C10 10 18 10 20 15 M10 11 C12 7 16 7 18 11" fill="none" stroke="#ffffff" stroke-width="1.8"/>
+      <text x="34" y="20" font-family="'Space Grotesk', system-ui, sans-serif" font-size="19" font-weight="800" fill="#0000FF" letter-spacing="-0.5">Pfizer</text>
+    </g>
+  
+</svg>

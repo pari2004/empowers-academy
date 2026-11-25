@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 48" width="130" height="48">
+  
+    <!-- Rivian Compass -->
+    <g transform="translate(14, 10)">
+      <polygon points="13,2 18,9 13,16 8,9" fill="#E5A823"/>
+      <polygon points="13,10 18,17 13,24 8,17" fill="#111111"/>
+      <text x="28" y="19" font-family="'Space Grotesk', system-ui, sans-serif" font-size="17" font-weight="800" fill="#111111" letter-spacing="1">RIVIAN</text>
+    </g>
+  
+</svg>

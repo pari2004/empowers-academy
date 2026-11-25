@@ -1,0 +1,1784 @@
+// Empowers Academy CMS — database schema.
+//
+// Convention: `createdById` / `updatedById` / `assignedToId` / ActivityLog.userId /
+// Revision.createdById are plain UUID string columns, deliberately NOT declared as
+// Prisma relations. They're audit/reference-only fields — resolving the user's name
+// for display is a lookup in the service layer, not a DB join. Doing this for every
+// audit field avoids ~15 clutter back-relation arrays on `User` for a benefit
+// (referential integrity on a field nothing cascades from) we don't need.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum ContentStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum CourseLevel {
+  BEGINNER
+  INTERMEDIATE
+  ADVANCED
+  ALL_LEVELS
+}
+
+enum MenuLocation {
+  HEADER
+  FOOTER
+  MOBILE
+}
+
+enum EnquiryStatus {
+  NEW
+  CONTACTED
+  QUALIFIED
+  FOLLOW_UP
+  ENROLLED
+  CLOSED
+}
+
+// Which public form produced the ContactEnquiry row.
+enum ContactEnquiryType {
+  CALLBACK
+  BROCHURE_DOWNLOAD
+  QUIZ_RESULT
+  MASTERCLASS_SIGNUP
+}
+
+enum ContactCompanyType {
+  SERVICE_BASED
+  PRODUCT_BASED
+}
+
+enum ContactLookingFor {
+  SWITCH_CAREER
+  GROW_ROLE
+  HIGHER_OFFER
+  NOT_SURE
+}
+
+enum LeadSource {
+  WEBSITE
+  WHATSAPP
+  FACEBOOK_ADS
+  INSTAGRAM
+  GOOGLE_ADS
+  REFERRAL
+  WALK_IN
+  LINKEDIN
+  YOUTUBE
+  OTHER
+}
+
+// The CRM pipeline is a state machine, not a free-form status field — see
+// lib/leadPipeline.ts for the transition graph enforced by leadService.transitionStage.
+// The first 8 values are the ordered pipeline; the remaining 7 are terminal
+// (absorbing) outcomes that can be reached from various points in the pipeline.
+enum LeadStage {
+  NEW_LEAD
+  CALL_ATTEMPTED
+  FOLLOW_UP
+  CALL_CONNECTED
+  SESSION_SCHEDULED
+  SESSION_DONE
+  PARTIAL_PAYMENT
+  ONBOARDED_LEARNER
+  INVALID_NUMBER
+  DUPLICATE_LEAD
+  NOT_INTERESTED
+  WRONG_REQUIREMENT
+  NO_RESPONSE
+  LOST
+  SPAM
+}
+
+enum LeadNoteType {
+  NOTE
+  CALL
+  STAGE_CHANGE
+}
+
+enum BatchStatus {
+  UPCOMING
+  ONGOING
+  COMPLETED
+  CANCELLED
+}
+
+enum AdmissionStatus {
+  APPLICATION_RECEIVED
+  DOCUMENTS_VERIFIED
+  OFFER_SENT
+  FEE_PENDING
+  CONFIRMED
+}
+
+enum PaymentMethod {
+  RAZORPAY
+  STRIPE
+  UPI
+  BANK_TRANSFER
+  CASH
+  CHEQUE
+}
+
+enum PaymentType {
+  REGISTRATION_FEE
+  ADMISSION_FEE
+  COURSE_FEE
+  INSTALLMENT
+  OTHER
+}
+
+enum PaymentTxnStatus {
+  PENDING
+  SUCCESS
+  FAILED
+  CANCELLED
+  REFUNDED
+}
+
+enum FeeStatus {
+  PENDING
+  PARTIAL
+  PAID
+  OVERDUE
+  REFUNDED
+}
+
+enum InstallmentStatus {
+  PENDING
+  PAID
+  OVERDUE
+  CANCELLED
+}
+
+enum RefundType {
+  FULL
+  PARTIAL
+}
+
+enum RefundStatus {
+  REQUESTED
+  APPROVED
+  PROCESSED
+  REJECTED
+}
+
+enum CouponDiscountType {
+  PERCENTAGE
+  FIXED
+}
+
+enum ReminderType {
+  UPCOMING
+  OVERDUE
+  FINAL
+}
+
+enum InvoiceStatus {
+  GENERATED
+  EMAILED
+  CANCELLED
+}
+
+// ---------- Phase 5: Course & Trainer Management ----------
+
+enum TrainerStatus {
+  ACTIVE
+  INACTIVE
+}
+
+enum TrainerRole {
+  PRIMARY
+  CO_TRAINER
+  TEACHING_ASSISTANT
+}
+
+enum ClassMode {
+  ONLINE
+  OFFLINE
+  HYBRID
+}
+
+enum MeetingProvider {
+  NONE
+  ZOOM
+  GOOGLE_MEET
+  MICROSOFT_TEAMS
+  CUSTOM
+}
+
+enum ScheduleStatus {
+  SCHEDULED
+  COMPLETED
+  CANCELLED
+}
+
+enum AttendanceStatus {
+  PRESENT
+  ABSENT
+  LATE
+  LEAVE
+}
+
+enum LessonContentType {
+  VIDEO
+  DOCUMENT
+  QUIZ
+  ASSIGNMENT
+  LIVE
+  TEXT
+}
+
+enum SubmissionStatus {
+  PENDING
+  SUBMITTED
+  LATE
+  GRADED
+}
+
+enum QuestionType {
+  MCQ
+  TRUE_FALSE
+  SHORT_ANSWER
+}
+
+enum ProgressStatus {
+  NOT_STARTED
+  IN_PROGRESS
+  COMPLETED
+}
+
+// Phase 6 (notifications/tasks/workflows) adds its values on top of the
+// original LMS set below rather than introducing a second enum.
+enum NotificationType {
+  BATCH_ASSIGNMENT
+  NEW_ENROLLMENT
+  UPCOMING_CLASS
+  ASSIGNMENT_DEADLINE
+  ATTENDANCE_ALERT
+  GENERAL
+  LEAD_ASSIGNED
+  FOLLOW_UP_REMINDER
+  SESSION_SCHEDULED
+  ADMISSION_COMPLETED
+  PAYMENT_RECEIVED
+  PAYMENT_OVERDUE
+  BATCH_ASSIGNED
+  NEW_STUDENT
+  ASSIGNMENT_SUBMITTED
+  CERTIFICATE_GENERATED
+  TASK_ASSIGNED
+  TASK_DUE
+  WORKFLOW_ALERT
+}
+
+// ---------- Auth / RBAC ----------
+
+model Role {
+  id          String   @id @default(uuid())
+  name        String   @unique
+  permissions String[]
+  users       User[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model User {
+  id                     String                  @id @default(uuid())
+  name                   String
+  email                  String                  @unique
+  passwordHash           String
+  image                  String?
+  roleId                 String
+  role                   Role                    @relation(fields: [roleId], references: [id])
+  isActive               Boolean                 @default(true)
+  lastLoginAt            DateTime?
+  createdAt              DateTime                @default(now())
+  updatedAt              DateTime                @updatedAt
+  deletedAt              DateTime?
+  instructor             Instructor?
+  notifications          Notification[]
+  notificationPreference NotificationPreference?
+
+  @@index([roleId])
+}
+
+model LoginAttempt {
+  id        String   @id @default(uuid())
+  email     String
+  ip        String
+  success   Boolean
+  createdAt DateTime @default(now())
+
+  @@index([email, createdAt])
+  @@index([ip, createdAt])
+}
+
+// ---------- Instructors ----------
+
+// Extended in Phase 5 into a full trainer profile: `userId` optionally links
+// an Instructor to a login-capable User (role INSTRUCTOR) so a trainer can
+// sign in and see their own dashboard/data, scoped via that link — nothing
+// duplicates User/auth, this is purely an identity bridge.
+model Instructor {
+  id              String             @id @default(uuid())
+  name            String
+  slug            String             @unique
+  designation     String
+  bio             String             @db.Text
+  skills          String[]
+  experience      String?
+  profileImage    String?
+  socialLinks     Json?
+  featured        Boolean            @default(false)
+  status          ContentStatus      @default(DRAFT)
+  courses         CourseInstructor[]
+  batches         Batch[]
+  masterclasses   Masterclass[]
+  version         Int                @default(1)
+  createdById     String?
+  updatedById     String?
+  deletedAt       DateTime?
+  createdAt       DateTime           @default(now())
+  updatedAt       DateTime           @updatedAt
+  email           String?
+  phone           String?
+  certifications  String[]           @default([])
+  specializations String[]           @default([])
+  resumeUrl       String?
+  availability    Json?
+  trainerStatus   TrainerStatus      @default(ACTIVE)
+  ratingAvg       Decimal?           @db.Decimal(3, 2)
+  ratingCount     Int                @default(0)
+  userId          String?            @unique
+  user            User?              @relation(fields: [userId], references: [id], onDelete: SetNull)
+}
+
+// ---------- Courses ----------
+
+model Course {
+  id               String                    @id @default(uuid())
+  title            String
+  slug             String                    @unique
+  category         String?
+  description      String                    @db.Text
+  shortDescription String?
+  thumbnail        String?
+  coverImage       String?
+  duration         String?
+  level            CourseLevel               @default(ALL_LEVELS)
+  language         String                    @default("English")
+  price            Decimal?                  @db.Decimal(10, 2)
+  discountPrice    Decimal?                  @db.Decimal(10, 2)
+  tags             String[]
+  learningOutcomes String[]
+  requirements     String[]
+  toolsCovered     String[]
+  status           ContentStatus             @default(DRAFT)
+  publishedAt      DateTime?
+  version          Int                       @default(1)
+  createdById      String?
+  updatedById      String?
+  deletedAt        DateTime?
+  createdAt        DateTime                  @default(now())
+  updatedAt        DateTime                  @updatedAt
+  instructors      CourseInstructor[]
+  curriculum       CourseCurriculumSection[]
+  faqs             Faq[]
+  views            CourseView[]
+  leads            Lead[]
+  batches          Batch[]
+  students         Student[]
+  masterclasses    Masterclass[]
+  programmeDetail  ProgrammeDetail?
+  brochures        Brochure[]
+
+  @@index([status, publishedAt])
+}
+
+model CourseInstructor {
+  id           String     @id @default(uuid())
+  courseId     String
+  instructorId String
+  course       Course     @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  instructor   Instructor @relation(fields: [instructorId], references: [id], onDelete: Cascade)
+
+  @@unique([courseId, instructorId])
+}
+
+model CourseCurriculumSection {
+  id       String                   @id @default(uuid())
+  courseId String
+  course   Course                   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  title    String
+  order    Int                      @default(0)
+  lessons  CourseCurriculumLesson[]
+
+  @@index([courseId])
+}
+
+model CourseCurriculumLesson {
+  id        String                  @id @default(uuid())
+  sectionId String
+  section   CourseCurriculumSection @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+  title     String
+  duration  String?
+  order     Int                     @default(0)
+
+  @@index([sectionId])
+}
+
+// ---------- FAQs (shared: global + per-course) ----------
+
+model FaqCategory {
+  id    String @id @default(uuid())
+  name  String @unique
+  order Int    @default(0)
+  faqs  Faq[]
+}
+
+model Faq {
+  id          String        @id @default(uuid())
+  question    String
+  answer      String        @db.Text
+  categoryId  String?
+  category    FaqCategory?  @relation(fields: [categoryId], references: [id])
+  courseId    String?
+  course      Course?       @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  order       Int           @default(0)
+  status      ContentStatus @default(PUBLISHED)
+  createdById String?
+  updatedById String?
+  deletedAt   DateTime?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@index([categoryId])
+  @@index([courseId])
+}
+
+// ---------- Blog ----------
+
+model BlogCategory {
+  id    String @id @default(uuid())
+  name  String @unique
+  slug  String @unique
+  blogs Blog[]
+}
+
+model BlogTag {
+  id    String          @id @default(uuid())
+  name  String          @unique
+  slug  String          @unique
+  blogs BlogTagOnBlog[]
+}
+
+model BlogTagOnBlog {
+  blogId String
+  tagId  String
+  blog   Blog    @relation(fields: [blogId], references: [id], onDelete: Cascade)
+  tag    BlogTag @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([blogId, tagId])
+}
+
+// `body` is stored as a `Block[]` JSON array — the same typed-block shape
+// `lib/resources.ts` already uses (extended with image/table/embed variants) —
+// never raw HTML, so rendering never needs dangerouslySetInnerHTML.
+// Scheduled publishing needs no cron job: status=PUBLISHED with a future
+// publishedAt simply isn't returned yet by public queries (`publishedAt <= now()`).
+model Blog {
+  id            String          @id @default(uuid())
+  title         String
+  slug          String          @unique
+  excerpt       String?
+  featuredImage String?
+  body          Json
+  categoryId    String?
+  category      BlogCategory?   @relation(fields: [categoryId], references: [id])
+  tags          BlogTagOnBlog[]
+  readingTime   String?
+  status        ContentStatus   @default(DRAFT)
+  publishedAt   DateTime?
+  authorId      String?
+  version       Int             @default(1)
+  createdById   String?
+  updatedById   String?
+  deletedAt     DateTime?
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+
+  @@index([status, publishedAt])
+}
+
+// ---------- Testimonials ----------
+
+model Testimonial {
+  id          String        @id @default(uuid())
+  studentName String
+  company     String?
+  designation String?
+  review      String        @db.Text
+  rating      Int           @default(5)
+  image       String?
+  videoUrl    String?
+  featured    Boolean       @default(false)
+  status      ContentStatus @default(PUBLISHED)
+  order       Int           @default(0)
+  createdById String?
+  updatedById String?
+  deletedAt   DateTime?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+// ---------- Masterclasses / Webinars ----------
+
+enum MasterclassStatus {
+  DRAFT
+  PUBLISHED
+  CANCELLED
+}
+
+model Masterclass {
+  id              String            @id @default(uuid())
+  title           String
+  slug            String            @unique
+  description     String            @db.Text
+  coverImage      String?
+  instructorId    String?
+  instructor      Instructor?       @relation(fields: [instructorId], references: [id], onDelete: SetNull)
+  courseId        String?
+  course          Course?           @relation(fields: [courseId], references: [id], onDelete: SetNull)
+  scheduledAt     DateTime
+  durationMinutes Int?
+  meetingLink     String?
+  capacity        Int?
+  status          MasterclassStatus @default(DRAFT)
+  createdById     String?
+  updatedById     String?
+  deletedAt       DateTime?
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+
+  @@index([status, scheduledAt])
+  @@index([instructorId])
+  @@index([courseId])
+}
+
+// ---------- Media Library ----------
+
+model MediaFolder {
+  id        String        @id @default(uuid())
+  name      String
+  parentId  String?
+  parent    MediaFolder?  @relation("FolderChildren", fields: [parentId], references: [id], onDelete: Cascade)
+  children  MediaFolder[] @relation("FolderChildren")
+  files     MediaFile[]
+  createdAt DateTime      @default(now())
+
+  @@index([parentId])
+}
+
+model MediaFile {
+  id           String       @id @default(uuid())
+  filename     String
+  url          String
+  thumbnailUrl String?
+  mimeType     String
+  size         Int
+  altText      String?
+  folderId     String?
+  folder       MediaFolder? @relation(fields: [folderId], references: [id])
+  createdById  String?
+  deletedAt    DateTime?
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+
+  @@index([folderId])
+}
+
+// ---------- Homepage Builder + Landing Page Builder (shared PageSection) ----------
+
+model LandingPage {
+  id              String        @id @default(uuid())
+  title           String
+  slug            String        @unique
+  metaTitle       String?
+  metaDescription String?
+  status          ContentStatus @default(DRAFT)
+  version         Int           @default(1)
+  sections        PageSection[]
+  createdById     String?
+  updatedById     String?
+  deletedAt       DateTime?
+  publishedAt     DateTime?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+}
+
+// landingPageId = null means this section belongs to the Homepage.
+model PageSection {
+  id              String       @id @default(uuid())
+  landingPageId   String?
+  landingPage     LandingPage? @relation(fields: [landingPageId], references: [id], onDelete: Cascade)
+  type            String
+  order           Int          @default(0)
+  enabled         Boolean      @default(true)
+  backgroundColor String?
+  config          Json
+  version         Int          @default(1)
+  updatedById     String?
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+
+  @@index([landingPageId, order])
+}
+
+// ---------- Navigation ----------
+
+model Menu {
+  id       String       @id @default(uuid())
+  location MenuLocation @unique
+  items    MenuItem[]
+}
+
+model MenuItem {
+  id         String     @id @default(uuid())
+  menuId     String
+  menu       Menu       @relation(fields: [menuId], references: [id], onDelete: Cascade)
+  parentId   String?
+  parent     MenuItem?  @relation("MenuItemChildren", fields: [parentId], references: [id], onDelete: Cascade)
+  children   MenuItem[] @relation("MenuItemChildren")
+  label      String
+  href       String
+  icon       String?
+  isExternal Boolean    @default(false)
+  order      Int        @default(0)
+
+  @@index([menuId, parentId])
+}
+
+// ---------- Banners ----------
+
+model Banner {
+  id              String        @id @default(uuid())
+  name            String
+  desktopImage    String
+  mobileImage     String?
+  headline        String?
+  subheading      String?
+  ctaLabel        String?
+  ctaHref         String?
+  backgroundColor String?
+  overlay         String?
+  status          ContentStatus @default(DRAFT)
+  publishAt       DateTime?
+  unpublishAt     DateTime?
+  order           Int           @default(0)
+  createdById     String?
+  updatedById     String?
+  deletedAt       DateTime?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+}
+
+// ---------- Brochures ----------
+
+model BrochureCategory {
+  id        String     @id @default(uuid())
+  name      String     @unique
+  slug      String     @unique
+  brochures Brochure[]
+}
+
+model Brochure {
+  id                 String            @id @default(uuid())
+  title              String
+  slug               String            @unique
+  shortDescription   String?
+  description        String?           @db.Text
+  thumbnail          String?
+  fileUrl            String
+  fileName           String?
+  fileSize           Int?
+  categoryId         String?
+  category           BrochureCategory? @relation(fields: [categoryId], references: [id])
+  courseId           String?
+  course             Course?           @relation(fields: [courseId], references: [id])
+  tags               String[]
+  downloadButtonText String?           @default("Download Brochure")
+  featured           Boolean           @default(false)
+  order              Int               @default(0)
+  status             ContentStatus     @default(DRAFT)
+  publishedAt        DateTime?
+  version            Int               @default(1)
+  createdById        String?
+  updatedById        String?
+  deletedAt          DateTime?
+  createdAt          DateTime          @default(now())
+  updatedAt          DateTime          @updatedAt
+
+  @@index([status, publishedAt])
+  @@index([courseId])
+}
+
+// ---------- Programme Details (1:1 marketing extension of Course) ----------
+
+model ProgrammeDetail {
+  id                  String        @id @default(uuid())
+  courseId            String        @unique
+  course              Course        @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  heroBanner          String?
+  heroImage           String?
+  mode                ClassMode     @default(ONLINE)
+  eligibility         String?       @db.Text
+  certification       String?
+  emiAvailable        Boolean       @default(false)
+  emiDetails          String?       @db.Text
+  scholarshipInfo     String?       @db.Text
+  admissionOpen       Boolean       @default(true)
+  overview            String?       @db.Text
+  highlights          String[]
+  careerOpportunities String[]
+  placementSupport    String?       @db.Text
+  placementRate       Int?
+  avgSalaryHikePct    Int?
+  avgPackageLpa       Decimal?      @db.Decimal(6, 2)
+  projects            Json?
+  galleryImages       String[]
+  videoUrl            String?
+  curriculumUrl       String?
+  applyCtaLabel       String?       @default("Apply Now")
+  applyCtaHref        String?
+  status              ContentStatus @default(DRAFT)
+  publishedAt         DateTime?
+  version             Int           @default(1)
+  createdById         String?
+  updatedById         String?
+  deletedAt           DateTime?
+  createdAt           DateTime      @default(now())
+  updatedAt           DateTime      @updatedAt
+
+  @@index([status, publishedAt])
+}
+
+// ---------- About Page (singleton) ----------
+
+model AboutPage {
+  id                 String        @id @default("singleton")
+  heroTitle          String?
+  heroSubtitle       String?
+  heroBackground     String?
+  heroCtaLabel       String?
+  heroCtaHref        String?
+  aboutDescription   String?       @db.Text
+  vision             String?       @db.Text
+  mission            String?       @db.Text
+  coreValues         Json?
+  statStudents       String?
+  statCourses        String?
+  statTrainers       String?
+  statPlacements     String?
+  founderName        String?
+  founderDesignation String?
+  founderPhoto       String?
+  founderMessage     String?       @db.Text
+  whyChooseUs        Json?
+  team               Json?
+  partners           Json?
+  achievements       Json?
+  timeline           Json?
+  gallery            String[]
+  videoUrl           String?
+  testimonialIds     String[]
+  ctaTitle           String?
+  ctaLabel           String?
+  ctaHref            String?
+  status             ContentStatus @default(DRAFT)
+  publishedAt        DateTime?
+  version            Int           @default(1)
+  updatedById        String?
+  updatedAt          DateTime      @updatedAt
+}
+
+// ---------- Global Settings + Footer (singleton row) ----------
+
+model SiteSettings {
+  id                String   @id @default("singleton")
+  siteName          String   @default("Empowers Academy")
+  logoUrl           String?
+  faviconUrl        String?
+  themeColors       Json?
+  companyInfo       Json?
+  socialLinks       Json?
+  legalLinks        Json?
+  copyright         String?
+  googleAnalyticsId String?
+  metaPixelId       String?
+  gtmId             String?
+  whatsappNumber    String?
+  smtpHost          String?
+  smtpPort          Int?
+  smtpUser          String?
+  smtpPassword      String?
+  smtpFrom          String?
+  gstEnabled        Boolean  @default(false)
+  gstNumber         String?
+  gstRate           Decimal? @db.Decimal(5, 2)
+  invoicePrefix     String?  @default("INV")
+  receiptPrefix     String?  @default("RCT")
+  updatedById       String?
+  updatedAt         DateTime @updatedAt
+}
+
+// ---------- Leads ----------
+
+model ContactEnquiry {
+  id               String              @id @default(uuid())
+  name             String
+  phone            String?
+  email            String
+  message          String?             @db.Text
+  courseInterested String?
+  status           EnquiryStatus       @default(NEW)
+  assignedToId     String?
+  notes            String?             @db.Text
+  // Fields below are shared by the "Request a Callback" and "Download the
+  // Brochure" public forms (RequestCallbackModal) — one intake model for
+  // both, distinguished by enquiryType.
+  companyType      ContactCompanyType?
+  lookingFor       ContactLookingFor?
+  companyName      String?
+  designation      String?
+  enquiryType      ContactEnquiryType?
+  createdAt        DateTime            @default(now())
+  updatedAt        DateTime            @updatedAt
+
+  @@index([status])
+  @@index([createdAt])
+  @@index([enquiryType])
+}
+
+// The full CRM entity — richer and separate from ContactEnquiry (the raw
+// public contact-form intake, left untouched). Converting an enquiry into a
+// Lead is a later automation-phase feature, not wired up yet.
+model Lead {
+  id                 String     @id @default(uuid())
+  name               String
+  phone              String?
+  whatsapp           String?
+  email              String?
+  city               String?
+  state              String?
+  college            String?
+  company            String?
+  experience         String?
+  source             LeadSource @default(WEBSITE)
+  interestedCourseId String?
+  course             Course?    @relation(fields: [interestedCourseId], references: [id], onDelete: SetNull)
+  budget             Decimal?   @db.Decimal(10, 2)
+  expectedJoining    DateTime?
+  leadScore          Int        @default(0)
+  tags               String[]
+  stage              LeadStage  @default(NEW_LEAD)
+  nextFollowUpAt     DateTime?
+  sessionScheduledAt DateTime?
+  notes              LeadNote[]
+  assignedToId       String?
+  createdById        String?
+  updatedById        String?
+  deletedAt          DateTime?
+  createdAt          DateTime   @default(now())
+  updatedAt          DateTime   @updatedAt
+
+  @@index([stage])
+  @@index([source])
+  @@index([assignedToId])
+  @@index([createdAt])
+  @@index([sessionScheduledAt])
+}
+
+model LeadNote {
+  id            String       @id @default(uuid())
+  leadId        String
+  lead          Lead         @relation(fields: [leadId], references: [id], onDelete: Cascade)
+  type          LeadNoteType @default(NOTE)
+  body          String       @db.Text
+  attachmentUrl String?
+  createdById   String?
+  createdAt     DateTime     @default(now())
+
+  @@index([leadId, createdAt])
+}
+
+// ---------- Admissions ----------
+// Trainer assignment reuses the existing Instructor model (an Instructor
+// already *is* a trainer in this data model) rather than a new entity.
+
+model Batch {
+  id           String      @id @default(uuid())
+  name         String
+  courseId     String
+  course       Course      @relation(fields: [courseId], references: [id], onDelete: Restrict)
+  instructorId String?
+  instructor   Instructor? @relation(fields: [instructorId], references: [id], onDelete: SetNull)
+  timing       String?
+  capacity     Int         @default(0)
+  startDate    DateTime?
+  endDate      DateTime?
+  meetingLink  String?
+  status       BatchStatus @default(UPCOMING)
+  students     Student[]
+  createdById  String?
+  updatedById  String?
+  deletedAt    DateTime?
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+
+  @@index([courseId])
+  @@index([instructorId])
+  @@index([status])
+}
+
+// `leadId` is a plain reference (see schema header convention), not a
+// relation — a Student's source Lead is a lookup, not a join.
+model Student {
+  id              String             @id @default(uuid())
+  leadId          String?
+  name            String
+  email           String?
+  phone           String?
+  courseId        String
+  course          Course             @relation(fields: [courseId], references: [id], onDelete: Restrict)
+  batchId         String?
+  batch           Batch?             @relation(fields: [batchId], references: [id], onDelete: SetNull)
+  admissionStatus AdmissionStatus    @default(APPLICATION_RECEIVED)
+  offerLetterUrl  String?
+  enrolledAt      DateTime           @default(now())
+  // Approved internal stub for the "link learner to LMS" onboarding step — no
+  // real LMS system exists yet (see lib/services/lmsService.ts). Kept as plain
+  // scalar fields, not a relation, so swapping in a real LMS integration later
+  // never requires a schema migration on this model.
+  lmsUserId       String?
+  lmsLinkedAt     DateTime?
+  assignedToId    String?
+  createdById     String?
+  updatedById     String?
+  deletedAt       DateTime?
+  createdAt       DateTime           @default(now())
+  updatedAt       DateTime           @updatedAt
+  feeProfile      StudentFeeProfile?
+  payments        Payment[]
+  installments    Installment[]
+  invoices        Invoice[]
+  receipts        Receipt[]
+  refunds         Refund[]
+
+  @@index([courseId])
+  @@index([batchId])
+  @@index([admissionStatus])
+  @@index([leadId])
+}
+
+// ---------- Finance ----------
+
+model StudentFeeProfile {
+  id                String    @id @default(uuid())
+  studentId         String    @unique
+  student           Student   @relation(fields: [studentId], references: [id], onDelete: Restrict)
+  totalCourseFee    Decimal   @db.Decimal(10, 2)
+  registrationFee   Decimal   @default(0) @db.Decimal(10, 2)
+  discountAmount    Decimal   @default(0) @db.Decimal(10, 2)
+  scholarshipAmount Decimal   @default(0) @db.Decimal(10, 2)
+  couponId          String?
+  amountPaid        Decimal   @default(0) @db.Decimal(10, 2)
+  pendingAmount     Decimal   @default(0) @db.Decimal(10, 2)
+  installmentCount  Int       @default(0)
+  nextDueDate       DateTime?
+  paymentStatus     FeeStatus @default(PENDING)
+  createdById       String?
+  updatedById       String?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  @@index([paymentStatus])
+  @@index([nextDueDate])
+}
+
+// `courseId` is a plain snapshot reference (see schema header convention) —
+// captured from Student.courseId at payment time so course-wise revenue
+// reports stay stable even if a student's course assignment changes later.
+model Payment {
+  id                String               @id @default(uuid())
+  studentId         String
+  student           Student              @relation(fields: [studentId], references: [id], onDelete: Restrict)
+  courseId          String
+  type              PaymentType
+  method            PaymentMethod
+  amount            Decimal              @db.Decimal(10, 2)
+  discountAmount    Decimal              @default(0) @db.Decimal(10, 2)
+  scholarshipAmount Decimal              @default(0) @db.Decimal(10, 2)
+  couponId          String?
+  coupon            Coupon?              @relation(fields: [couponId], references: [id], onDelete: SetNull)
+  status            PaymentTxnStatus     @default(PENDING)
+  gatewayOrderId    String?
+  gatewayPaymentId  String?
+  gatewaySignature  String?
+  receiptNumber     String?              @unique
+  notes             String?              @db.Text
+  collectedById     String?
+  createdById       String?
+  updatedById       String?
+  createdAt         DateTime             @default(now())
+  updatedAt         DateTime             @updatedAt
+  installment       Installment?
+  transactions      PaymentTransaction[]
+  invoice           Invoice?
+  receipt           Receipt?
+  refunds           Refund[]
+
+  @@index([studentId])
+  @@index([courseId])
+  @@index([status])
+  @@index([method])
+  @@index([createdAt])
+}
+
+model Installment {
+  id                 String            @id @default(uuid())
+  studentId          String
+  student            Student           @relation(fields: [studentId], references: [id], onDelete: Restrict)
+  installmentNumber  Int
+  dueDate            DateTime
+  amount             Decimal           @db.Decimal(10, 2)
+  status             InstallmentStatus @default(PENDING)
+  paidAt             DateTime?
+  paymentId          String?           @unique
+  payment            Payment?          @relation(fields: [paymentId], references: [id], onDelete: Restrict)
+  receiptNumber      String?
+  notes              String?           @db.Text
+  remindersSentCount Int               @default(0)
+  lastReminderAt     DateTime?
+  lastReminderType   ReminderType?
+  createdById        String?
+  updatedById        String?
+  createdAt          DateTime          @default(now())
+  updatedAt          DateTime          @updatedAt
+
+  @@unique([studentId, installmentNumber])
+  @@index([studentId])
+  @@index([status])
+  @@index([dueDate])
+}
+
+model Invoice {
+  id            String        @id @default(uuid())
+  invoiceNumber String        @unique
+  paymentId     String        @unique
+  payment       Payment       @relation(fields: [paymentId], references: [id], onDelete: Restrict)
+  studentId     String
+  student       Student       @relation(fields: [studentId], references: [id], onDelete: Restrict)
+  courseId      String
+  amount        Decimal       @db.Decimal(10, 2)
+  gstRate       Decimal?      @db.Decimal(5, 2)
+  gstAmount     Decimal       @default(0) @db.Decimal(10, 2)
+  totalAmount   Decimal       @db.Decimal(10, 2)
+  status        InvoiceStatus @default(GENERATED)
+  pdfUrl        String?
+  emailedAt     DateTime?
+  createdById   String?
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  @@index([studentId])
+  @@index([createdAt])
+}
+
+model Receipt {
+  id            String        @id @default(uuid())
+  receiptNumber String        @unique
+  paymentId     String        @unique
+  payment       Payment       @relation(fields: [paymentId], references: [id], onDelete: Restrict)
+  studentId     String
+  student       Student       @relation(fields: [studentId], references: [id], onDelete: Restrict)
+  amount        Decimal       @db.Decimal(10, 2)
+  method        PaymentMethod
+  collectedById String?
+  pdfUrl        String?
+  emailedAt     DateTime?
+  createdAt     DateTime      @default(now())
+
+  @@index([studentId])
+  @@index([createdAt])
+}
+
+model Refund {
+  id              String       @id @default(uuid())
+  paymentId       String
+  payment         Payment      @relation(fields: [paymentId], references: [id], onDelete: Restrict)
+  studentId       String
+  student         Student      @relation(fields: [studentId], references: [id], onDelete: Restrict)
+  amount          Decimal      @db.Decimal(10, 2)
+  type            RefundType
+  reason          String       @db.Text
+  status          RefundStatus @default(REQUESTED)
+  approvedById    String?
+  gatewayRefundId String?
+  refundedAt      DateTime?
+  createdById     String?
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+
+  @@index([paymentId])
+  @@index([studentId])
+  @@index([status])
+}
+
+model Coupon {
+  id                  String             @id @default(uuid())
+  code                String             @unique
+  discountType        CouponDiscountType
+  discountValue       Decimal            @db.Decimal(10, 2)
+  maxUsage            Int                @default(1)
+  usedCount           Int                @default(0)
+  expiryDate          DateTime?
+  isActive            Boolean            @default(true)
+  applicableCourseIds String[]
+  createdById         String?
+  updatedById         String?
+  deletedAt           DateTime?
+  createdAt           DateTime           @default(now())
+  updatedAt           DateTime           @updatedAt
+  payments            Payment[]
+
+  @@index([isActive])
+  @@index([expiryDate])
+}
+
+// Raw gateway event/audit log — distinct from Payment (the business/accounting
+// record). Every order-create call and every webhook delivery appends a row
+// here, even ones that don't change Payment.status, for a full audit trail.
+model PaymentTransaction {
+  id               String           @id @default(uuid())
+  paymentId        String
+  payment          Payment          @relation(fields: [paymentId], references: [id], onDelete: Cascade)
+  gateway          PaymentMethod
+  gatewayOrderId   String?
+  gatewayPaymentId String?
+  gatewaySignature String?
+  status           PaymentTxnStatus
+  rawPayload       Json?
+  createdAt        DateTime         @default(now())
+
+  @@index([paymentId])
+  @@index([gatewayOrderId])
+  @@index([gatewayPaymentId])
+}
+
+// Atomic counter backing invoice/receipt numbering (keys: "INVOICE", "RECEIPT").
+// A dedicated counter avoids numbering collisions/gaps that a `count()`-based
+// scheme would risk under concurrent creation.
+model FinanceSequence {
+  key   String @id
+  value Int    @default(0)
+}
+
+model NewsletterSubscriber {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  isActive  Boolean  @default(true)
+  source    String?
+  createdAt DateTime @default(now())
+}
+
+// ---------- SEO ----------
+
+model SeoMeta {
+  id              String   @id @default(uuid())
+  entityType      String
+  entityId        String
+  metaTitle       String?
+  metaDescription String?
+  canonicalUrl    String?
+  keywords        String[]
+  ogImage         String?
+  twitterCard     String?
+  schemaJsonLd    Json?
+  robots          String?  @default("index,follow")
+  updatedAt       DateTime @updatedAt
+
+  @@unique([entityType, entityId])
+}
+
+// ---------- Ops / Audit ----------
+
+model ActivityLog {
+  id         String   @id @default(uuid())
+  userId     String?
+  action     String
+  entityType String?
+  entityId   String?
+  metadata   Json?
+  createdAt  DateTime @default(now())
+
+  @@index([userId])
+  @@index([entityType, entityId])
+  @@index([createdAt])
+}
+
+model Revision {
+  id            String   @id @default(uuid())
+  entityType    String
+  entityId      String
+  versionNumber Int
+  data          Json
+  createdById   String?
+  createdAt     DateTime @default(now())
+
+  @@unique([entityType, entityId, versionNumber])
+  @@index([entityType, entityId])
+}
+
+// ---------- AI Features ----------
+// AiInsight is a polymorphic *current-value* cache — same entityType/entityId
+// string convention as SeoMeta above (non-nullable, "" / "global" sentinels
+// for account-wide scopes, since Postgres treats NULL as distinct under a
+// unique constraint). Regenerating an insight overwrites it; history lives in
+// AiRequestLog instead, not here.
+
+enum AiFeature {
+  LEAD_SCORE
+  FOLLOWUP_SUGGESTION
+  EMAIL_DRAFT
+  WHATSAPP_DRAFT
+  MEETING_SUMMARY
+  STUDENT_RISK
+  PLACEMENT_READINESS
+  REVENUE_FORECAST
+  DASHBOARD_INSIGHT
+  REPORT
+  CHAT
+}
+
+enum AiRequestStatus {
+  SUCCESS
+  ERROR
+}
+
+enum AiChatRole {
+  USER
+  ASSISTANT
+}
+
+model AiInsight {
+  id          String    @id @default(uuid())
+  feature     AiFeature
+  entityType  String
+  entityId    String
+  data        Json
+  provider    String
+  model       String
+  createdById String?
+  createdAt   DateTime  @default(now())
+
+  @@unique([feature, entityType, entityId])
+  @@index([feature, entityType, entityId])
+}
+
+// Append-only audit of every AI provider call, regardless of feature or
+// outcome — satisfies "log AI requests/responses" from a single choke point
+// (lib/ai/log.ts) rather than per-feature logging.
+model AiRequestLog {
+  id               String          @id @default(uuid())
+  feature          AiFeature
+  provider         String
+  model            String
+  userId           String?
+  entityType       String?
+  entityId         String?
+  promptTokens     Int?
+  completionTokens Int?
+  latencyMs        Int
+  status           AiRequestStatus
+  errorMessage     String?
+  createdAt        DateTime        @default(now())
+
+  @@index([feature, createdAt])
+  @@index([userId, createdAt])
+  @@index([status, createdAt])
+}
+
+model AiChatThread {
+  id        String          @id @default(uuid())
+  userId    String
+  title     String          @default("New chat")
+  messages  AiChatMessage[]
+  createdAt DateTime        @default(now())
+  updatedAt DateTime        @updatedAt
+
+  @@index([userId, updatedAt])
+}
+
+model AiChatMessage {
+  id        String       @id @default(uuid())
+  threadId  String
+  thread    AiChatThread @relation(fields: [threadId], references: [id], onDelete: Cascade)
+  role      AiChatRole
+  content   String       @db.Text
+  createdAt DateTime     @default(now())
+
+  @@index([threadId, createdAt])
+}
+
+// ---------- Lightweight self-hosted analytics ----------
+
+model CourseView {
+  id        String   @id @default(uuid())
+  courseId  String
+  course    Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  sessionId String?
+  createdAt DateTime @default(now())
+
+  @@index([courseId, createdAt])
+}
+
+model PageView {
+  id        String   @id @default(uuid())
+  path      String
+  referrer  String?
+  sessionId String?
+  createdAt DateTime @default(now())
+
+  @@index([path, createdAt])
+}
+
+// ---------- Phase 6: Tasks, Workflow Automation, Notifications & Communications ----------
+// `leadId` / `studentId` / `batchId` / `assignedToId` / `counsellorId` / `trainerId`
+// below follow the schema-wide convention documented at the top of this file:
+// plain audit/reference UUID columns, not Prisma relations.
+
+enum TaskStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+// Shared by Task.priority and Notification.priority — same LOW/MEDIUM/HIGH/CRITICAL
+// scale, one enum rather than two identical ones. Named after the Notification
+// side since `notificationService.ts` imports the Prisma-generated type by that name.
+enum NotificationPriority {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
+model Task {
+  id           String               @id @default(uuid())
+  title        String
+  description  String?              @db.Text
+  status       TaskStatus           @default(PENDING)
+  priority     NotificationPriority @default(MEDIUM)
+  dueDate      DateTime?
+  completedAt  DateTime?
+  assignedToId String?
+  assignedById String?
+  entityType   String?
+  entityId     String?
+  leadId       String?
+  studentId    String?
+  comments     TaskComment[]
+  attachments  TaskAttachment[]
+  createdById  String?
+  updatedById  String?
+  deletedAt    DateTime?
+  createdAt    DateTime             @default(now())
+  updatedAt    DateTime             @updatedAt
+
+  @@index([status])
+  @@index([assignedToId])
+  @@index([dueDate])
+  @@index([entityType, entityId])
+}
+
+model TaskComment {
+  id          String   @id @default(uuid())
+  taskId      String
+  task        Task     @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  body        String   @db.Text
+  createdById String?
+  createdAt   DateTime @default(now())
+
+  @@index([taskId, createdAt])
+}
+
+model TaskAttachment {
+  id           String   @id @default(uuid())
+  taskId       String
+  task         Task     @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  url          String
+  filename     String
+  size         Int?
+  uploadedById String?
+  createdAt    DateTime @default(now())
+
+  @@index([taskId])
+}
+
+enum WorkflowTriggerType {
+  LEAD_CREATED
+  LEAD_STAGE_CHANGED
+  DEMO_SCHEDULED
+  ADMISSION_APPROVED
+  STUDENT_CREATED
+  PAYMENT_RECEIVED
+  PAYMENT_OVERDUE
+  BATCH_ASSIGNED
+  COURSE_COMPLETED
+}
+
+enum WorkflowActionType {
+  SEND_EMAIL
+  CREATE_TASK
+  ASSIGN_COUNSELLOR
+  NOTIFY_ADMIN
+  SEND_REMINDER
+  UPDATE_STATUS
+  GENERATE_NOTIFICATION
+}
+
+enum WorkflowRunStatus {
+  SUCCESS
+  FAILED
+  PARTIAL
+}
+
+model Workflow {
+  id          String           @id @default(uuid())
+  name        String
+  description String?
+  isActive    Boolean          @default(true)
+  trigger     WorkflowTrigger?
+  actions     WorkflowAction[]
+  runs        WorkflowRun[]
+  createdById String?
+  updatedById String?
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+
+  @@index([isActive])
+}
+
+model WorkflowTrigger {
+  id         String              @id @default(uuid())
+  workflowId String              @unique
+  workflow   Workflow            @relation(fields: [workflowId], references: [id], onDelete: Cascade)
+  type       WorkflowTriggerType
+  config     Json?
+
+  @@index([type])
+}
+
+model WorkflowAction {
+  id         String             @id @default(uuid())
+  workflowId String
+  workflow   Workflow           @relation(fields: [workflowId], references: [id], onDelete: Cascade)
+  order      Int                @default(0)
+  type       WorkflowActionType
+  config     Json
+
+  @@index([workflowId, order])
+}
+
+// Exactly-once dispatch is enforced by `dedupeKey` (workflowId:entityType:entityId:eventSignature) being unique.
+model WorkflowRun {
+  id          String            @id @default(uuid())
+  workflowId  String
+  workflow    Workflow          @relation(fields: [workflowId], references: [id], onDelete: Cascade)
+  entityType  String
+  entityId    String
+  status      WorkflowRunStatus
+  dedupeKey   String            @unique
+  resultLog   Json?
+  triggeredAt DateTime          @default(now())
+
+  @@index([workflowId, triggeredAt])
+}
+
+model Notification {
+  id         String               @id @default(uuid())
+  userId     String
+  user       User                 @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type       NotificationType
+  title      String
+  body       String               @db.Text
+  link       String?
+  entityType String?
+  entityId   String?
+  priority   NotificationPriority @default(MEDIUM)
+  isRead     Boolean              @default(false)
+  readAt     DateTime?
+  isArchived Boolean              @default(false)
+  archivedAt DateTime?
+  createdAt  DateTime             @default(now())
+
+  @@index([userId, isRead, isArchived])
+  @@index([userId, createdAt])
+}
+
+model NotificationPreference {
+  id              String             @id @default(uuid())
+  userId          String             @unique
+  user            User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+  emailEnabled    Boolean            @default(true)
+  inAppEnabled    Boolean            @default(true)
+  whatsappEnabled Boolean            @default(false)
+  smsEnabled      Boolean            @default(false)
+  pushEnabled     Boolean            @default(false)
+  mutedTypes      NotificationType[]
+  createdAt       DateTime           @default(now())
+  updatedAt       DateTime           @updatedAt
+}
+
+enum EmailTemplateCategory {
+  WELCOME
+  DEMO_INVITATION
+  FOLLOW_UP
+  ADMISSION_CONFIRMATION
+  PAYMENT_REMINDER
+  BATCH_ASSIGNMENT
+  CLASS_REMINDER
+  ASSIGNMENT_REMINDER
+  CERTIFICATE_ISSUED
+  PLACEMENT_UPDATE
+  CUSTOM
+}
+
+enum EmailStatus {
+  DRAFT
+  QUEUED
+  SCHEDULED
+  SENDING
+  SENT
+  DELIVERED
+  OPENED
+  FAILED
+  BOUNCED
+}
+
+model EmailTemplate {
+  id          String                @id @default(uuid())
+  name        String
+  slug        String                @unique
+  category    EmailTemplateCategory @default(CUSTOM)
+  subject     String
+  bodyHtml    String                @db.Text
+  variables   String[]              @default([])
+  isActive    Boolean               @default(true)
+  emailLogs   EmailLog[]
+  createdById String?
+  updatedById String?
+  createdAt   DateTime              @default(now())
+  updatedAt   DateTime              @updatedAt
+
+  @@index([category])
+}
+
+model EmailLog {
+  id           String         @id @default(uuid())
+  templateId   String?
+  template     EmailTemplate? @relation(fields: [templateId], references: [id], onDelete: SetNull)
+  subject      String
+  bodyHtml     String         @db.Text
+  toEmail      String
+  toName       String?
+  fromEmail    String
+  ccEmails     String[]       @default([])
+  bccEmails    String[]       @default([])
+  attachments  Json?
+  status       EmailStatus
+  scheduledAt  DateTime?
+  sentAt       DateTime?
+  failedAt     DateTime?
+  openedAt     DateTime?
+  errorMessage String?
+  bulkSendId   String?
+  leadId       String?
+  studentId    String?
+  entityType   String?
+  entityId     String?
+  createdById  String?
+  createdAt    DateTime       @default(now())
+
+  @@index([status])
+  @@index([bulkSendId])
+  @@index([entityType, entityId])
+  @@index([createdAt])
+}
+
+enum CommunicationChannel {
+  EMAIL
+  WHATSAPP
+  SMS
+  IN_APP
+  PUSH
+  CALL
+  MEETING
+}
+
+enum CommunicationDirection {
+  OUTBOUND
+  INBOUND
+}
+
+enum CommunicationStatus {
+  PENDING
+  SENT
+  DELIVERED
+  FAILED
+  READ
+}
+
+// Unified cross-channel history row — written by emailService/smsService/whatsappService
+// as a side effect, and merged with ActivityLog into the Lead/Student timeline.
+model CommunicationLog {
+  id           String                 @id @default(uuid())
+  channel      CommunicationChannel
+  direction    CommunicationDirection @default(OUTBOUND)
+  subject      String?
+  summary      String                 @db.Text
+  status       CommunicationStatus    @default(SENT)
+  leadId       String?
+  studentId    String?
+  counsellorId String?
+  trainerId    String?
+  batchId      String?
+  createdById  String?
+  createdAt    DateTime               @default(now())
+
+  @@index([leadId, createdAt])
+  @@index([studentId, createdAt])
+  @@index([batchId, createdAt])
+  @@index([channel])
+}
+
+enum SmsPurpose {
+  OTP
+  PAYMENT_REMINDER
+  DEMO_REMINDER
+  EMERGENCY
+  GENERAL
+}
+
+enum SmsStatus {
+  QUEUED
+  SENT
+  FAILED
+}
+
+model SmsLog {
+  id           String     @id @default(uuid())
+  toPhone      String
+  message      String     @db.Text
+  purpose      SmsPurpose @default(GENERAL)
+  status       SmsStatus  @default(QUEUED)
+  errorMessage String?
+  leadId       String?
+  studentId    String?
+  entityType   String?
+  entityId     String?
+  createdById  String?
+  createdAt    DateTime   @default(now())
+
+  @@index([status])
+  @@index([createdAt])
+}
+
+enum WhatsAppStatus {
+  QUEUED
+  SENT
+  FAILED
+}
+
+model WhatsAppLog {
+  id           String         @id @default(uuid())
+  toPhone      String
+  templateName String?
+  message      String         @db.Text
+  status       WhatsAppStatus @default(QUEUED)
+  errorMessage String?
+  leadId       String?
+  studentId    String?
+  entityType   String?
+  entityId     String?
+  createdById  String?
+  createdAt    DateTime       @default(now())
+
+  @@index([status])
+  @@index([createdAt])
+}
+
+// Named `ReminderCategory` (not `ReminderType`) — the Payments module already owns a
+// `ReminderType` enum (UPCOMING/OVERDUE/FINAL) for its own installment dunning cadence.
+enum ReminderCategory {
+  FOLLOW_UP
+  DEMO_CLASS
+  PENDING_PAYMENT
+  BATCH_START
+  ASSIGNMENT_DUE
+  CERTIFICATE_READY
+  CUSTOM
+}
+
+enum ReminderRecurrence {
+  NONE
+  DAILY
+  WEEKLY
+  MONTHLY
+  CUSTOM
+}
+
+enum ReminderStatus {
+  PENDING
+  SENT
+  DISMISSED
+  CANCELLED
+}
+
+model Reminder {
+  id               String             @id @default(uuid())
+  type             ReminderCategory
+  title            String
+  description      String?            @db.Text
+  dueAt            DateTime
+  recurrence       ReminderRecurrence @default(NONE)
+  recurrenceConfig Json?
+  status           ReminderStatus     @default(PENDING)
+  nextTriggerAt    DateTime?
+  lastTriggeredAt  DateTime?
+  assignedToId     String?
+  leadId           String?
+  studentId        String?
+  batchId          String?
+  entityType       String?
+  entityId         String?
+  createdById      String?
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+
+  @@index([status, dueAt])
+  @@index([assignedToId])
+  @@index([leadId])
+  @@index([batchId])
+}

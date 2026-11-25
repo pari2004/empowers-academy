@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 48" width="130" height="48">
+  
+    <!-- Endava -->
+    <g transform="translate(12, 11)">
+      <circle cx="12" cy="13" r="9" fill="#DE4B34"/>
+      <path d="M12 7 L12 19 M7 13 L17 13" stroke="#ffffff" stroke-width="2.5"/>
+      <text x="28" y="20" font-family="'Space Grotesk', system-ui, sans-serif" font-size="17" font-weight="700" fill="#DE4123" letter-spacing="-0.3">endava</text>
+    </g>
+  
+</svg>

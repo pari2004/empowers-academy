@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cloud Computing &amp; DevOps Program — Curriculum</title>
+<style>
+  :root{
+    --bg:#0c0916; --bg-card:#15101f; --bg-card-2:#17131f; --border:#2a2338;
+    --text:#f2eef8; --text-dim:#a89fb8;
+    --pink:#ec3d84; --orange:#f9a13a; --yellow:#ffd23f; --green:#35d6a3; --blue:#2f8cf0; --purple:#9b4de0;
+    --rainbow:linear-gradient(90deg,#ec3d84,#f9a13a,#ffd23f,#35d6a3,#2f8cf0,#9b4de0);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:'Segoe UI',ui-sans-serif,system-ui,-apple-system,sans-serif;line-height:1.6;}
+  .wrap{max-width:980px;margin:0 auto;padding:0 32px;}
+  header.top{position:sticky;top:0;z-index:50;background:rgba(12,9,22,0.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
+  .topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 32px;max-width:980px;margin:0 auto;}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.1rem;}
+  .brand img{height:32px;width:32px;object-fit:contain;}
+  .brand .a{background:linear-gradient(90deg,var(--pink),var(--orange));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  nav.top-nav{display:flex;gap:20px;font-size:.82rem;color:var(--text-dim);}
+  nav.top-nav a{color:var(--text-dim);text-decoration:none;}
+  nav.top-nav a:hover{color:var(--text);}
+  .rule{height:4px;border:none;background:var(--rainbow);border-radius:4px;margin:18px 0 30px;width:140px;}
+  h1.big-title{font-size:3.6rem;letter-spacing:.02em;margin:40px 0 4px;font-weight:900;line-height:1.05;}
+  h1{font-size:2.7rem;margin:36px 0 8px;font-weight:800;}
+  h1 .grad{background:linear-gradient(90deg,var(--pink),var(--orange),var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .sub{color:var(--text-dim);font-size:1.15rem;max-width:760px;margin-bottom:34px;}
+  h2{font-size:1.9rem;margin:48px 0 6px;font-weight:800;border-top:1px solid var(--border);padding-top:36px;}
+  h2 .grad{background:linear-gradient(90deg,var(--pink),var(--orange));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  h2:first-of-type{border-top:none;padding-top:0;}
+  h3{font-size:1.35rem;margin:30px 0 6px;color:var(--text);}
+  h3 .eyebrow-inline{color:var(--orange);font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-left:8px;}
+  h4{font-size:1.1rem;margin:18px 0 6px;color:var(--blue);}
+  p.mdesc{color:var(--text-dim);font-size:1.02rem;margin:2px 0 12px;}
+  ul{margin:0 0 16px;padding-left:22px;font-size:1.05rem;color:var(--text-dim);}
+  ul li{margin-bottom:7px;}
+  ul li b, ul li strong{color:var(--text);}
+
+  table.outline{width:100%;border-collapse:collapse;margin:22px 0 12px;font-size:1.02rem;border:1px solid var(--border);}
+  table.outline th{text-align:left;color:var(--orange);text-transform:uppercase;font-size:.82rem;letter-spacing:.08em;border:1px solid var(--border);padding:14px 16px;background:var(--bg-card-2);}
+  table.outline td{padding:14px 16px;border:1px solid var(--border);color:var(--text-dim);vertical-align:top;}
+  table.outline tr td:first-child{color:var(--text);font-weight:700;}
+  table.outline tr:nth-child(even) td{background:rgba(255,255,255,0.02);}
+
+  .proj-line{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:12px 16px;margin-top:10px;font-size:.85rem;}
+  .proj-line span.k{color:var(--pink);font-weight:700;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;margin-right:8px;}
+  .proj-line span.k2{color:var(--yellow);}
+
+  .toolchip{display:inline-block;border:1px solid var(--border);border-radius:8px;padding:5px 14px;font-size:.95rem;color:var(--text-dim);margin:3px 5px 3px 0;background:var(--bg-card-2);}
+
+  footer{padding:50px 0 40px;text-align:center;color:var(--text-dim);font-size:.8rem;}
+  footer .flogo{height:26px;vertical-align:middle;margin-right:8px;}
+  .cta{display:inline-block;margin-top:18px;background:linear-gradient(90deg,var(--pink),var(--purple));color:#fff;text-decoration:none;font-weight:700;padding:12px 26px;border-radius:999px;font-size:.9rem;}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="topbar">
+    <nav class="top-nav">
+      <a href="#outline">Outline</a>
+      <a href="#deepdive">Deep Dive</a>
+      <a href="#electives">Electives</a>
+      <a href="#tools">Tools</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+<div class="brand-row" style="display:flex;align-items:center;gap:18px;">
+  <img src="data:image/png;base64,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" alt="Empowers Academy logo" style="height:70px;width:70px;object-fit:contain;">
+  <h1 class="big-title" style="margin:0;">EMPOWERS <span class="grad">ACADEMY</span></h1>
+</div>
+<h1>Cloud Computing &amp; DevOps<br><span class="grad">Industry Ready Professional Program</span></h1>
+<p class="sub">Master Cloud Computing and DevOps by learning AWS, Azure, Google Cloud, Docker, Kubernetes, Terraform, Jenkins, GitHub Actions, CI/CD, Infrastructure as Code, Monitoring, and Cloud Security through real-world projects.</p>
+<div style="margin:bottom:34px;">
+  <span class="toolchip">Duration: 6 Months</span><span class="toolchip">Mode: Live Online</span><span class="toolchip">Projects: 10+</span><span class="toolchip">Certification: Industry Certificate</span>
+</div>
+
+<h2>Programme <span class="grad">Overview</span></h2>
+<p class="mdesc">Everything you need to go from cloud fundamentals to production-grade DevOps practice:</p>
+<ul>
+<li><b>Cloud Computing Fundamentals</b> — service &amp; deployment models across AWS, Azure, and Google Cloud</li>
+<li><b>DevOps Methodology</b> — version control, collaboration, and a CI/CD-first culture</li>
+<li><b>Infrastructure Automation</b> — Infrastructure as Code, configuration management, and containerization</li>
+<li><b>Cloud Deployment</b> — provisioning, orchestrating, and monitoring production workloads</li>
+<li><b>Career Opportunities</b> — the roles this program prepares you for, and how to land them</li>
+</ul>
+
+<h2>Learning <span class="grad">Outcomes</span></h2>
+<p class="mdesc">Skills and technologies you'll master across the program.</p>
+<div>
+  <span class="toolchip">Cloud Fundamentals</span><span class="toolchip">AWS</span><span class="toolchip">Azure</span><span class="toolchip">Google Cloud</span><span class="toolchip">Linux Administration</span><span class="toolchip">Git &amp; GitHub</span><span class="toolchip">Docker</span><span class="toolchip">Kubernetes</span><span class="toolchip">Terraform</span><span class="toolchip">Ansible</span><span class="toolchip">Jenkins</span><span class="toolchip">CI/CD</span><span class="toolchip">Monitoring</span><span class="toolchip">Cloud Security</span><span class="toolchip">Infrastructure as Code</span>
+</div>
+
+<h2>Learning <span class="grad">Roadmap</span></h2>
+<p class="mdesc">Your path from fundamentals to the capstone project.</p>
+<p class="mdesc" style="font-size:1.05rem;line-height:2.1;">Cloud Fundamentals&nbsp;→&nbsp;Linux &amp; Networking&nbsp;→&nbsp;Git &amp; GitHub&nbsp;→&nbsp;AWS Fundamentals&nbsp;→&nbsp;Azure Fundamentals&nbsp;→&nbsp;Docker&nbsp;→&nbsp;Kubernetes&nbsp;→&nbsp;Terraform&nbsp;→&nbsp;Ansible&nbsp;→&nbsp;Jenkins CI/CD&nbsp;→&nbsp;Monitoring&nbsp;→&nbsp;Capstone Project</p>
+
+<h2 id="outline">Curriculum <span class="grad">Outline</span></h2>
+<table class="outline">
+<tr><th>Segment</th><th>Modules</th></tr>
+<tr><td>Cloud Fundamentals (M1)</td><td>Cloud Concepts, IaaS, PaaS, SaaS, Public Cloud, Private Cloud, Hybrid Cloud</td></tr>
+<tr><td>Linux &amp; Networking (M2)</td><td>Linux Commands, Shell Scripting, Networking Basics, File System</td></tr>
+<tr><td>Version Control (M3)</td><td>Git, GitHub, Branching, Merge, Pull Requests</td></tr>
+<tr><td>AWS Cloud (M4)</td><td>EC2, S3, IAM, VPC, Load Balancer, Auto Scaling</td></tr>
+<tr><td>Azure &amp; Google Cloud (M5)</td><td>Azure Fundamentals, Virtual Machines, Storage, Networking, Google Cloud Basics</td></tr>
+<tr><td>Docker (M6)</td><td>Images, Containers, Dockerfile, Docker Compose</td></tr>
+<tr><td>Kubernetes (M7)</td><td>Pods, ReplicaSets, Deployments, Services, Ingress</td></tr>
+<tr><td>Terraform (M8)</td><td>Infrastructure as Code, Providers, Variables, Modules, State Files</td></tr>
+<tr><td>Ansible (M9)</td><td>Inventory, Playbooks, Roles, Automation</td></tr>
+<tr><td>Jenkins &amp; CI/CD (M10)</td><td>Jenkins Installation, Pipelines, Build Automation, Deployment Automation</td></tr>
+<tr><td>Monitoring (M11)</td><td>Prometheus, Grafana, Logging, Alerting</td></tr>
+<tr><td>Capstone Project</td><td>Build and deploy a production-ready cloud-native application with a complete CI/CD pipeline</td></tr>
+<tr><td>Elective Track (3 months)</td><td>Cloud Infrastructure &amp; Security Track / Site Reliability Engineering Track / Platform Engineering &amp; IaC Track</td></tr>
+</table>
+
+<h2>Module <span class="grad">Deliverables &amp; Tools</span></h2>
+<table class="outline">
+<tr><th>Module</th><th>Tools Used</th><th>Mini Project</th><th>Deliverable</th></tr>
+<tr><td>M1. Cloud Fundamentals</td><td>AWS, Azure, Google Cloud</td><td>Cloud Architecture Design</td><td>Documented cloud architecture</td></tr>
+<tr><td>M2. Linux &amp; Networking</td><td>Linux, Shell Scripting, Networking Tools</td><td>Linux Server Configuration</td><td>Configured Linux server</td></tr>
+<tr><td>M3. Version Control</td><td>Git, GitHub</td><td>Git Collaboration</td><td>Team repository with branching workflow</td></tr>
+<tr><td>M4. AWS Cloud</td><td>EC2, S3, IAM, VPC, Load Balancer</td><td>Deploy Website on AWS</td><td>Live AWS-hosted website</td></tr>
+<tr><td>M5. Azure &amp; Google Cloud</td><td>Azure, Google Cloud</td><td>Deploy Multi Cloud Infrastructure</td><td>Multi-cloud deployment</td></tr>
+<tr><td>M6. Docker</td><td>Docker, Docker Compose</td><td>Containerize Web Application</td><td>Containerized application</td></tr>
+<tr><td>M7. Kubernetes</td><td>Kubernetes</td><td>Deploy Docker App on Kubernetes</td><td>Running Kubernetes deployment</td></tr>
+<tr><td>M8. Terraform</td><td>Terraform</td><td>Provision Cloud Infrastructure</td><td>Infrastructure as Code project</td></tr>
+<tr><td>M9. Ansible</td><td>Ansible</td><td>Server Configuration Automation</td><td>Automated configuration playbooks</td></tr>
+<tr><td>M10. Jenkins &amp; CI/CD</td><td>Jenkins, GitHub Actions</td><td>Complete CI/CD Pipeline</td><td>Working CI/CD pipeline</td></tr>
+<tr><td>M11. Monitoring</td><td>Prometheus, Grafana</td><td>Production Monitoring Dashboard</td><td>Live monitoring dashboard</td></tr>
+<tr><td>Capstone</td><td>Full Stack of Tools</td><td>Build and deploy a production-ready cloud-native application</td><td>Capstone solution + Executive presentation</td></tr>
+</table>
+
+<h2>Industry <span class="grad">Projects</span></h2>
+<table class="outline">
+<tr><th>Project</th><th>Focus</th></tr>
+<tr><td>Deploy Website on AWS</td><td>Provision and host a production website on AWS</td></tr>
+<tr><td>CI/CD Pipeline</td><td>Automate build, test, and deployment with Jenkins</td></tr>
+<tr><td>Dockerized Web Application</td><td>Package and run a web app as a container</td></tr>
+<tr><td>Kubernetes Deployment</td><td>Deploy and scale containerized workloads on Kubernetes</td></tr>
+<tr><td>Infrastructure as Code</td><td>Provision cloud infrastructure declaratively with Terraform</td></tr>
+<tr><td>Cloud Monitoring Dashboard</td><td>Track infrastructure health with Prometheus &amp; Grafana</td></tr>
+<tr><td>Multi-Cloud Deployment</td><td>Deploy workloads across AWS, Azure, and Google Cloud</td></tr>
+<tr><td>Production DevOps Pipeline</td><td>Combine Git, Docker, Kubernetes, Terraform, and Jenkins end-to-end</td></tr>
+</table>
+
+<h2 id="deepdive">Curriculum <span class="grad">Deep Dive</span></h2>
+
+<h3>M1 · Cloud Fundamentals <span class="eyebrow-inline">Month 1</span></h3>
+<p class="mdesc">The cloud concepts and vocabulary before anything else.</p>
+<table class="outline">
+<tr><th>#</th><th>Topic</th></tr>
+<tr><td>1</td><td>Cloud Concepts</td></tr>
+<tr><td>2</td><td>IaaS</td></tr>
+<tr><td>3</td><td>PaaS</td></tr>
+<tr><td>4</td><td>SaaS</td></tr>
+<tr><td>5</td><td>Public Cloud</td></tr>
+<tr><td>6</td><td>Private Cloud</td></tr>
+<tr><td>7</td><td>Hybrid Cloud</td></tr>
+</table>
+<div>Tools: <span class="toolchip">AWS</span><span class="toolchip">Azure</span><span class="toolchip">Google Cloud</span></div>
+<div class="proj-line"><span class="k">Mini Project</span>Cloud Architecture Design &nbsp;·&nbsp; <span class="k2">Deliverable:</span> Documented cloud architecture</div>
+
+<h3>M2 · Linux &amp; Networking <span class="eyebrow-inline">Month 1</span></h3>
+<p class="mdesc">The operating system and networking foundation every DevOps engineer needs.</p>
+<table class="outline">
+<tr><th>#</th><th>Topic</th></tr>
+<tr><td>1</td><td>Linux Commands</td></tr>
+<tr><td>2</td><td>Shell Scripting</td></tr>
+<tr><td>3</td><td>Networking Basics</td></tr>
+<tr><td>4</td><td>File System</td></tr>
+</table>
+<div>Tools: <span class="toolchip">Linux</span></div>
+<div class="proj-line"><span class="k">Mini Project</span>Linux Server Configuration &nbsp;·&nbsp; <span class="k2">Deliverable:</span> Configured Linux server</div>
+
+<h3>M3 · Version Control <span class="eyebrow-inline">Month 1</span></h3>
+<p class="mdesc">Collaborate on code the way real engineering teams do.</p>
+<table class="outline">
+<tr><th>#</th><th>Topic</th></tr>
+<tr><td>1</td><td>Git</td></tr>
+<tr><td>2</td><td>GitHub</td></tr>
+<tr><td>3</td><td>Branching</td></tr>
+<tr><td>4</td><td>Merge</td></tr>
+<tr><td>5</td><td>Pull Requests</td></tr>
+</table>
+<div>Tools: <span class="toolchip">Git</span><span class="toolchip">GitHub</span></div>
+<div class="proj-line"><span class="k">Mini Project</span>Git Collaboration &nbsp;·&nbsp; <span class="k2">Deliverable:</span> Team repository with branching workflow</div>
+
+<h3>M4 · AWS Cloud <span class="eyebrow-inline">Month 2</span></h3>
+<p class="mdesc">Get hands-on with the most widely used cloud platform.</p>
+<table class="outline">
+<tr><th>#</th><th>Topic</th></tr>
+<tr><td>1</td><td>EC2</td></tr>
+<tr><td>2</td><td>S3</td></tr>
+<tr><td>3</td><td>IAM</td></tr>
+<tr><td>4</td><td>VPC</td></tr>
+<tr><td>5</td><td>Load Balancer</td></tr>
+<tr><td>6</td><td>Auto Scaling</td></tr>
+</table>
+<div>Tools: <span class="toolchip">EC2</span><span class="toolchip">S3</span><span class="toolchip">IAM</span><span class="toolchip">VPC</span><span class="toolchip">Load Balancer</span><span class="toolchip">Auto Scaling</span></div>
+<div class="proj-line"><span class="k">Mini Project</span>Deploy Website on AWS &nbsp;·&nbsp; <span class="k2">Deliverable:</span> Live AWS-hosted website</div>
+
+<h3>M5 · Azure &amp; Google Cloud <span class="eyebrow-inline">Month 2</span></h3>
+<p class="mdesc">Broaden your cloud fluency beyond a single provider.</p>
+<table class="outline">
+<tr><th>#</th><th>Topic</th></tr>
+<tr><td>1</td><td>Azure Fundamentals</td></tr>
+<tr><td>2</td><td>Virtual Machines</td></tr>
+<tr><td>3</td><td>Storage</td></tr>
+<tr><td>4</td><td>Networking</td></tr>
+<tr><td>5</td><td>Google Cloud Basics</td></tr>
+</table>
+<div>Tools: <span class="toolchip">Azure</span><span class="toolchip">Google Cloud</span></div>
+<div class="proj-line"><span class="k">Mini Project</span>Deploy Multi Cloud Infrastructure &nbsp;·&nbsp; <span class="k2">Deliverable:</span> Multi-cloud deployment</div>
+
+<h3>M6 · Docker <span class="eyebrow-inline">Month 3</span></h3>
+<p class="mdesc">Package applications into portable, consistent containers.</p>
+<table class="outline">
+<tr><th>#</th><th>Topic</th></tr>
+<tr><td>1</td><td>Images</td></tr>
+<tr><td>2</td><td>Containers</td></tr>
+<tr><td>3</td><td>Dockerfile</td></tr>
+<tr><td>4</td><td>Docker Compose</td></tr>
+</table>
+<div>Tools: <span class="toolchip">Docker</span></div>
+<div class="proj-line"><span class="k">Mini Project</span>Containerize Web Application &nbsp;·&nbsp; <span class="k2">Deliverable:</span> Containerized application</div>
+
+<h3>M7 · Kubernetes <span class="eyebrow-inline">Month 3</span></h3>
+<p class="mdesc">Orchestrate containers at scale in production.</p>
+<table class="outline">
+<tr><th>#</th><th>Topic</th></tr>
+<tr><td>1</td><td>Pods</td></tr>
+<tr><td>2</td><td>ReplicaSets</td></tr>
+<tr><td>3</td><td>Deployments</td></tr>
+<tr><td>4</td><td>Services</td></tr>
+<tr><td>5</td><td>Ingress</td></tr>
+</table>
+<div>Tools: <span class="toolchip">Kubernetes</span></div>
+<div class="proj-line"><span class="k">Mini Project</span>Deploy Docker App on Kubernetes &nbsp;·&nbsp; <span class="k2">Deliverable:</span> Running Kubernetes deployment</div>
+
+<h3>M8 · Terraform <span class="eyebrow-inline">Month 4</span></h3>
+<p class="mdesc">Provision cloud infrastructure declaratively and repeatably.</p>
+<table class="outline">
+<tr><th>#</th><th>Topic</th></tr>
+<tr><td>1</td><td>Infrastructure as Code</td></tr>
+<tr><td>2</td><td>Providers</td></tr>
+<tr><td>3</td><td>Variables</td></tr>
+<tr><td>4</td><td>Modules</td></tr>
+<tr><td>5</td><td>State Files</td></tr>
+</table>
+<div>Tools: <span class="toolchip">Terraform</span></div>
+<div class="proj-line"><span class="k">Mini Project</span>Provision Cloud Infrastructure &nbsp;·&nbsp; <span class="k2">Deliverable:</span> Infrastructure as Code project</div>
+
+<h3>M9 · Ansible <span class="eyebrow-inline">Month 4</span></h3>
+<p class="mdesc">Automate server configuration at scale.</p>
+<table class="outline">
+<tr><th>#</th><th>Topic</th></tr>
+<tr><td>1</td><td>Inventory</td></tr>
+<tr><td>2</td><td>Playbooks</td></tr>
+<tr><td>3</td><td>Roles</td></tr>
+<tr><td>4</td><td>Automation</td></tr>
+</table>
+<div>Tools: <span class="toolchip">Ansible</span></div>
+<div class="proj-line"><span class="k">Mini Project</span>Server Configuration Automation &nbsp;·&nbsp; <span class="k2">Deliverable:</span> Automated configuration playbooks</div>
+
+<h3>M10 · Jenkins &amp; CI/CD <span class="eyebrow-inline">Month 5</span></h3>
+<p class="mdesc">Build automated pipelines that ship code continuously.</p>
+<table class="outline">
+<tr><th>#</th><th>Topic</th></tr>
+<tr><td>1</td><td>Jenkins Installation</td></tr>
+<tr><td>2</td><td>Pipelines</td></tr>
+<tr><td>3</td><td>Build Automation</td></tr>
+<tr><td>4</td><td>Deployment Automation</td></tr>
+</table>
+<div>Tools: <span class="toolchip">Jenkins</span><span class="toolchip">GitHub Actions</span></div>
+<div class="proj-line"><span class="k">Mini Project</span>Complete CI/CD Pipeline &nbsp;·&nbsp; <span class="k2">Deliverable:</span> Working CI/CD pipeline</div>
+
+<h3>M11 · Monitoring <span class="eyebrow-inline">Month 5</span></h3>
+<p class="mdesc">Keep production systems observable and reliable.</p>
+<table class="outline">
+<tr><th>#</th><th>Topic</th></tr>
+<tr><td>1</td><td>Prometheus</td></tr>
+<tr><td>2</td><td>Grafana</td></tr>
+<tr><td>3</td><td>Logging</td></tr>
+<tr><td>4</td><td>Alerting</td></tr>
+</table>
+<div>Tools: <span class="toolchip">Prometheus</span><span class="toolchip">Grafana</span></div>
+<div class="proj-line"><span class="k">Mini Project</span>Production Monitoring Dashboard &nbsp;·&nbsp; <span class="k2">Deliverable:</span> Live monitoring dashboard</div>
+
+<h3>Capstone Project <span class="eyebrow-inline">Applied end-to-end</span></h3>
+<p class="mdesc">Build and deploy a production-ready cloud-native application using GitHub, Docker, Kubernetes, Terraform, Jenkins, and AWS with a complete CI/CD pipeline.</p>
+<div>Tools: <span class="toolchip">Full Stack of Tools</span></div>
+<div class="proj-line"><span class="k">Deliverable</span>Capstone project solution + Executive presentation &nbsp;·&nbsp; <span class="k2">Outcome:</span> Showcase end-to-end cloud &amp; DevOps problem solving ability</div>
+
+<h3>Career Acceleration <span class="eyebrow-inline">Placement</span></h3>
+<p class="mdesc">Turn your portfolio into offers — resume to negotiation.</p>
+<table class="outline">
+<tr><th>#</th><th>Topic</th></tr>
+<tr><td>1</td><td>Resume &amp; LinkedIn transformation</td></tr>
+<tr><td>2</td><td>Portfolio refinement</td></tr>
+<tr><td>3</td><td>Mock interviews &amp; feedback</td></tr>
+<tr><td>4</td><td>Salary negotiation training</td></tr>
+<tr><td>5</td><td>Job referrals &amp; placement support</td></tr>
+</table>
+<div>Tools: <span class="toolchip">Resume Building</span><span class="toolchip">Interview Prep</span><span class="toolchip">Career Resources</span></div>
+<div class="proj-line"><span class="k">Deliverable</span>Interview-ready profile + Job application kit &nbsp;·&nbsp; <span class="k2">Outcome:</span> Confidently land your next opportunity</div>
+
+<h2 id="electives">Elective <span class="grad">Track</span> <span style="font-size:.9rem;color:var(--text-dim);font-weight:400;">(choose one, 3 months)</span></h2>
+
+<h3>Cloud Infrastructure &amp; Security Track</h3>
+<table class="outline">
+<tr><th>#</th><th>Focus Area</th></tr>
+<tr><td>1</td><td>Advanced Cloud Networking</td></tr>
+<tr><td>2</td><td>Cloud Security &amp; Compliance</td></tr>
+<tr><td>3</td><td>Identity &amp; Access Management</td></tr>
+<tr><td>4</td><td>Cost Optimization &amp; FinOps</td></tr>
+<tr><td>5</td><td>Cloud Security Capstone</td></tr>
+</table>
+<p class="mdesc">Career roles: Cloud Security Engineer, Cloud Administrator, Cloud Consultant, Cloud Architect</p>
+
+<h3>Site Reliability Engineering Track</h3>
+<table class="outline">
+<tr><th>#</th><th>Focus Area</th></tr>
+<tr><td>1</td><td>SRE Principles &amp; SLOs</td></tr>
+<tr><td>2</td><td>Incident Management &amp; On-Call</td></tr>
+<tr><td>3</td><td>Advanced Observability</td></tr>
+<tr><td>4</td><td>Chaos Engineering</td></tr>
+<tr><td>5</td><td>SRE Capstone Project</td></tr>
+</table>
+<p class="mdesc">Career roles: Site Reliability Engineer, Platform Engineer, Infrastructure Engineer</p>
+
+<h3>Platform Engineering &amp; IaC Track</h3>
+<table class="outline">
+<tr><th>#</th><th>Focus Area</th></tr>
+<tr><td>1</td><td>Advanced Terraform &amp; IaC Patterns</td></tr>
+<tr><td>2</td><td>Internal Developer Platforms</td></tr>
+<tr><td>3</td><td>GitOps Workflows</td></tr>
+<tr><td>4</td><td>Kubernetes Operators</td></tr>
+<tr><td>5</td><td>Platform Engineering Capstone</td></tr>
+</table>
+<p class="mdesc">Career roles: Platform Engineer, DevOps Engineer, Cloud Engineer, Infrastructure Engineer</p>
+
+<h2 id="tools">The Tools <span class="grad">You'll Use</span></h2>
+<p class="mdesc">Refreshed each cohort based on what's most impactful at the time of delivery.</p>
+<div>
+  <span class="toolchip">AWS</span><span class="toolchip">Azure</span><span class="toolchip">Google Cloud</span>
+  <span class="toolchip">Linux</span><span class="toolchip">Git</span><span class="toolchip">GitHub</span>
+  <span class="toolchip">Docker</span><span class="toolchip">Kubernetes</span><span class="toolchip">Terraform</span>
+  <span class="toolchip">Ansible</span><span class="toolchip">Jenkins</span><span class="toolchip">Prometheus</span>
+  <span class="toolchip">Grafana</span><span class="toolchip">GitHub Actions</span>
+</div>
+
+<h2>Career <span class="grad">Opportunities</span></h2>
+<p class="mdesc">Roles this program prepares you for.</p>
+<div>
+  <span class="toolchip">Cloud Engineer</span><span class="toolchip">DevOps Engineer</span><span class="toolchip">Site Reliability Engineer</span>
+  <span class="toolchip">Cloud Administrator</span><span class="toolchip">Infrastructure Engineer</span><span class="toolchip">Platform Engineer</span>
+  <span class="toolchip">Cloud Consultant</span><span class="toolchip">Cloud Architect</span>
+</div>
+
+<h2>Program <span class="grad">Details</span></h2>
+<table class="outline">
+<tr><th>Category</th><th>Details</th></tr>
+<tr><td>Format</td><td>6 months, 100% online, live cohorts, sessions recorded for later</td></tr>
+<tr><td>Guarantee</td><td>180-day better-offer guarantee — a better offer within 180 days of completion, or a full refund, backed by a signed legal agreement before you pay</td></tr>
+<tr><td>Eligibility</td><td>Bachelor's degree in any discipline; open to professionals, entrepreneurs, and graduates (2+ years experience recommended for senior infrastructure roles)</td></tr>
+<tr><td>Admissions</td><td>Shortlist call → Aptitude test → Interview → Offer rollout</td></tr>
+<tr><td>Career support</td><td>1:1 mentorship, unlimited mock interviews, resume &amp; LinkedIn positioning, 350+ hiring partner network</td></tr>
+</table>
+
+<h2 id="faq">Frequently Asked <span class="grad">Questions</span></h2>
+
+<h3>Do I need prior coding or cloud experience to join?</h3>
+<p class="mdesc">No. The program starts with cloud fundamentals, Linux, and version control before moving into AWS, Azure, Google Cloud, and DevOps tooling, so no prior cloud or scripting background is required.</p>
+
+<h3>Which cloud platforms will I work with?</h3>
+<p class="mdesc">You'll get hands-on practice across AWS, Azure, and Google Cloud, with the deepest focus on AWS through dedicated modules and projects.</p>
+
+<h3>Is this program suitable if I'm already working in IT?</h3>
+<p class="mdesc">Yes. Working professionals can use the elective tracks — Cloud Infrastructure &amp; Security, Site Reliability Engineering, or Platform Engineering &amp; IaC — to specialize toward their next role.</p>
+
+<h3>What kind of projects will I build?</h3>
+<p class="mdesc">You'll ship 10+ hands-on projects, including deploying a website on AWS, building a CI/CD pipeline, containerizing an app with Docker, deploying to Kubernetes, provisioning infrastructure with Terraform, and a production-ready capstone.</p>
+
+<h3>What do I receive at the end of the program?</h3>
+<p class="mdesc">You'll receive an Industry Certificate along with a completed project portfolio, an interview-ready profile, and job application support.</p>
+
+<h3>What is the 180-day better-offer guarantee?</h3>
+<p class="mdesc">If you don't receive a better offer within 180 days of completing the program, you're eligible for a full refund, backed by a signed legal agreement made before you pay.</p>
+
+<footer>
+  Empowers Academy · Cloud Computing &amp; DevOps Program
+  <br><a class="cta" href="#top">Start Your Application →</a>
+</footer>
+
+</div>
+</body>
+</html>

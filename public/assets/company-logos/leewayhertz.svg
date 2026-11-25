@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 48" width="140" height="48">
+  <defs>
+    <linearGradient id="grad-leewayhertz" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0369A1"/>
+      <stop offset="100%" stop-color="#0284C7"/>
+    </linearGradient>
+  </defs>
+  <!-- Brand icon / emblem container -->
+  <rect x="12" y="10" width="28" height="28" rx="7" fill="url(#grad-leewayhertz)"/>
+  <text x="26" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="-0.5">L</text>
+  
+  <!-- Company Wordmark -->
+  <text x="48" y="29" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="600" fill="#007BFF" letter-spacing="-0.2">LeewayHertz</text>
+</svg>

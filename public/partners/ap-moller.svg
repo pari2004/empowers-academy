@@ -1,0 +1,10 @@
+<svg role="img" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+  <title>A.P. Moller - Maersk</title>
+  <!-- Maersk Seven-pointed Star Emblem -->
+  <g transform="translate(10, 8)">
+    <rect width="44" height="44" rx="4" fill="#00A3E0"/>
+    <path fill="#FFFFFF" d="M22,6 L25,17 L36,14 L30,23 L40,29 L28,33 L31,44 L22,37 L13,44 L16,33 L4,29 L14,23 L8,14 L19,17 Z"/>
+  </g>
+  <!-- Maersk Text -->
+  <text x="66" y="40" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="bold" font-size="28" fill="#00A3E0" letter-spacing="1">MAERSK</text>
+</svg>

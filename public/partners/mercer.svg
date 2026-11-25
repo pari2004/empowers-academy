@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width="320" height="80">
+  <g>
+    <!-- Mercer Wave Icon -->
+    <path d="M 15 55 C 25 30, 40 25, 55 45 C 70 65, 85 40, 95 25 C 80 45, 65 50, 50 35 C 35 20, 25 35, 15 55 Z" fill="#00A3E0"/>
+    <path d="M 25 60 C 35 40, 50 35, 65 52 C 80 70, 95 50, 105 35 C 90 52, 75 56, 60 42 C 45 28, 35 42, 25 60 Z" fill="#002D62" opacity="0.85"/>
+    <!-- Mercer Wordmark -->
+    <text x="120" y="52" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" font-size="34" letter-spacing="3" fill="#002D62">MERCER</text>
+  </g>
+</svg>

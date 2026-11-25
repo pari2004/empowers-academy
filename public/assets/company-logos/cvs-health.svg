@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 48" width="140" height="48">
+  
+    <!-- CVS Health Heart -->
+    <g transform="translate(10, 11)">
+      <path d="M12 7 C7 2 2 8 6 14 L12 21 L18 14 C22 8 17 2 12 7 Z" fill="#CC0000"/>
+      <text x="28" y="19" font-family="'Space Grotesk', system-ui, sans-serif" font-size="16" font-weight="800" fill="#CC0000">CVS</text>
+      <text x="64" y="19" font-family="'Space Grotesk', system-ui, sans-serif" font-size="13" font-weight="700" fill="#111111">health</text>
+    </g>
+  
+</svg>

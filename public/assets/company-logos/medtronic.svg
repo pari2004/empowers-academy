@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 48" width="140" height="48">
+  
+    <!-- Medtronic Patient Wave -->
+    <g transform="translate(10, 10)">
+      <circle cx="12" cy="7" r="3" fill="#004B87"/>
+      <path d="M5 22 C5 14 12 12 19 22" stroke="#004B87" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <text x="28" y="19" font-family="'Space Grotesk', system-ui, sans-serif" font-size="16" font-weight="700" fill="#004B87" letter-spacing="-0.3">Medtronic</text>
+    </g>
+  
+</svg>

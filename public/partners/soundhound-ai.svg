@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 80" width="360" height="80">
+  <g fill="#00A4E4">
+    <path d="M 20 40 C 20 25, 35 25, 35 40 C 35 55, 50 55, 50 40" fill="none" stroke="#00A4E4" stroke-width="8"/>
+    <text x="65" y="52" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" font-size="28" letter-spacing="1" fill="#003366">SoundHound</text>
+  </g>
+</svg>

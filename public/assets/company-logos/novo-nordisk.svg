@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 48" width="150" height="48">
+  
+    <!-- Novo Nordisk Apis Bull -->
+    <g transform="translate(8, 10)">
+      <circle cx="13" cy="13" r="11" fill="#003366"/>
+      <circle cx="13" cy="9" r="3" fill="#ffffff"/>
+      <path d="M9 16 C11 19 15 19 17 16" stroke="#ffffff" stroke-width="2" fill="none"/>
+      <text x="30" y="15" font-family="'Space Grotesk', system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#003366">novo</text>
+      <text x="30" y="24" font-family="'Space Grotesk', system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#003366">nordisk</text>
+    </g>
+  
+</svg>

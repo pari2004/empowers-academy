@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 48" width="140" height="48">
+  
+    <!-- Merck & Co. Overlapping Circles -->
+    <g transform="translate(10, 10)">
+      <circle cx="9" cy="9" r="6" fill="#007A78" opacity="0.8"/>
+      <circle cx="17" cy="9" r="6" fill="#007A78" opacity="0.8"/>
+      <circle cx="13" cy="16" r="6" fill="#007A78" opacity="0.8"/>
+      <text x="30" y="20" font-family="'Space Grotesk', system-ui, sans-serif" font-size="18" font-weight="800" fill="#007A78" letter-spacing="-0.3">MERCK</text>
+    </g>
+  
+</svg>

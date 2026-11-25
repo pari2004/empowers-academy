@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 48" width="130" height="48">
+  
+    <!-- Lowe's Blue House -->
+    <g transform="translate(14, 10)">
+      <polygon points="13,3 24,11 24,23 2,23 2,11" fill="#004990"/>
+      <text x="13" y="19" font-family="'Arial Black', sans-serif" font-size="7.5" font-weight="900" fill="#ffffff" text-anchor="middle">LOWE'S</text>
+      <text x="32" y="20" font-family="'Arial Black', sans-serif" font-size="16" font-weight="900" fill="#004990">LOWE'S</text>
+    </g>
+  
+</svg>

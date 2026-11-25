@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 48" width="130" height="48">
+  
+    <!-- Wayfair Pinwheel -->
+    <g transform="translate(14, 11)">
+      <path d="M4 13 L12 5 L20 13 L12 21 Z" fill="#7B187B"/>
+      <path d="M12 5 L17 13 L12 21 L7 13 Z" fill="#9C27B0"/>
+      <text x="28" y="20" font-family="'Space Grotesk', system-ui, sans-serif" font-size="17" font-weight="700" fill="#7B187B" letter-spacing="-0.3">wayfair</text>
+    </g>
+  
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 48" width="150" height="48">
+  
+    <!-- Happiest Minds -->
+    <g transform="translate(8, 10)">
+      <circle cx="14" cy="13" r="11" fill="#F58220"/>
+      <circle cx="10" cy="10" r="1.8" fill="#ffffff"/>
+      <circle cx="18" cy="10" r="1.8" fill="#ffffff"/>
+      <path d="M9 14 C11 18 17 18 19 14" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+      <text x="32" y="15" font-family="'Space Grotesk', system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#F58220">happiest</text>
+      <text x="32" y="24" font-family="'Space Grotesk', system-ui, sans-serif" font-size="12.5" font-weight="700" fill="#002D62">minds</text>
+    </g>
+  
+</svg>

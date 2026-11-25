@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 48" width="130" height="48">
+  
+    <!-- MetLife M Ribbon -->
+    <g transform="translate(12, 11)">
+      <path d="M4 20 L4 8 L11 16 L18 8 L18 20" fill="none" stroke="#007ABC" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M18 12 L22 16 L26 8" fill="none" stroke="#80BC00" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="32" y="19" font-family="'Space Grotesk', system-ui, sans-serif" font-size="17" font-weight="800" fill="#002B49" letter-spacing="-0.4">MetLife</text>
+    </g>
+  
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 48" width="140" height="48">
+  
+    <!-- Persistent Systems -->
+    <g transform="translate(10, 11)">
+      <path d="M4 13 C4 7 9 4 15 4 C22 4 26 13 32 13 C38 13 41 8 41 13 C41 18 36 22 30 22 C23 22 19 13 13 13 C7 13 4 9 4 13 Z" fill="none" stroke="#FF5A00" stroke-width="3.5"/>
+      <text x="48" y="19" font-family="'Inter', system-ui, sans-serif" font-size="14.5" font-weight="700" fill="#E35205" letter-spacing="-0.3">Persistent</text>
+    </g>
+  
+</svg>

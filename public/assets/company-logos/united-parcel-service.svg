@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 48" width="140" height="48">
+  
+    <!-- UPS Shield -->
+    <g transform="translate(10, 10)">
+      <path d="M4 2 L22 2 L22 14 C22 20 13 25 13 25 C13 25 4 20 4 14 Z" fill="#351C15"/>
+      <text x="13" y="16" font-family="'Arial Black', sans-serif" font-size="9" font-weight="900" fill="#FFB500" text-anchor="middle">ups</text>
+      <text x="30" y="20" font-family="'Arial Black', sans-serif" font-size="20" font-weight="900" fill="#351C15">UPS</text>
+    </g>
+  
+</svg>

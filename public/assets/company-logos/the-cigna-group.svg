@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 48" width="140" height="48">
+  
+    <!-- Cigna Tree of Life -->
+    <g transform="translate(10, 10)">
+      <circle cx="12" cy="8" r="3.5" fill="#EB6200"/>
+      <path d="M6 21 C6 14 18 14 18 21" stroke="#003366" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <text x="28" y="19" font-family="'Space Grotesk', system-ui, sans-serif" font-size="18" font-weight="900" fill="#003366">Cigna</text>
+    </g>
+  
+</svg>

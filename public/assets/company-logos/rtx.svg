@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 48" width="120" height="48">
+  
+    <!-- RTX Radar Arcs -->
+    <g transform="translate(18, 11)">
+      <circle cx="13" cy="13" r="10" fill="none" stroke="#E31837" stroke-width="2.5" stroke-dasharray="16 10"/>
+      <circle cx="13" cy="13" r="5" fill="#E31837"/>
+      <text x="32" y="21" font-family="'Space Grotesk', system-ui, sans-serif" font-size="22" font-weight="900" fill="#111111" letter-spacing="1">RTX</text>
+    </g>
+  
+</svg>

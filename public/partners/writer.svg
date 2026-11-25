@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 80" width="280" height="80">
+  <g fill="#FF4F00">
+    <rect x="20" y="24" width="12" height="32"/>
+    <rect x="36" y="24" width="12" height="32"/>
+    <text x="60" y="52" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="900" font-size="34" letter-spacing="2" fill="#FF4F00">WRITER</text>
+  </g>
+</svg>

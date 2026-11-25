@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 48" width="160" height="48">
+  
+    <!-- Bristol Myers Squibb Purple Hand -->
+    <g transform="translate(6, 10)">
+      <rect x="2" y="2" width="22" height="22" rx="5" fill="#6A1B9A"/>
+      <path d="M7 16 C7 11 12 8 16 11 C18 13 18 18 14 18" stroke="#ffffff" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <text x="30" y="14" font-family="'Space Grotesk', system-ui, sans-serif" font-size="11" font-weight="800" fill="#111111">Bristol Myers</text>
+      <text x="30" y="24" font-family="'Space Grotesk', system-ui, sans-serif" font-size="11" font-weight="800" fill="#6A1B9A">Squibb</text>
+    </g>
+  
+</svg>

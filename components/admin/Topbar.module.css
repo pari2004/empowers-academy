@@ -1,0 +1,113 @@
+.topbar {
+  height: var(--adm-topbar-h);
+  border-bottom: 1px solid var(--adm-border);
+  background: var(--adm-surface);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.leftGroup {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--adm-border);
+  background: var(--adm-surface);
+  color: var(--adm-text);
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.backBtn:hover {
+  background: var(--adm-primary-soft);
+  color: var(--adm-primary);
+  border-color: var(--adm-primary);
+}
+
+.exitBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--adm-border);
+  background: var(--adm-surface);
+  color: var(--adm-text-soft);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.exitBtn:hover {
+  background: var(--adm-danger);
+  color: #ffffff;
+  border-color: var(--adm-danger);
+}
+
+.searchHint {
+  font-size: 12.5px;
+  color: var(--adm-text-faint);
+}
+
+.kbd {
+  background: var(--adm-bg);
+  border: 1px solid var(--adm-border);
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-size: 11px;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1.3;
+}
+
+.userName {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.userRole {
+  font-size: 11px;
+  color: var(--adm-text-faint);
+  text-transform: capitalize;
+}
+
+.logout {
+  border: 1px solid var(--adm-border);
+  background: transparent;
+  color: var(--adm-text-soft);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12.5px;
+  cursor: pointer;
+}
+
+.logout:hover {
+  background: var(--adm-bg);
+  color: var(--adm-text);
+}

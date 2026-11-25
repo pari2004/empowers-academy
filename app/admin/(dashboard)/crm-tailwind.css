@@ -1,0 +1,38 @@
+/* Tailwind for the CRM surface only (Leads, Batches, Students). Utilities-only
+   import — no Preflight — so the reset never bleeds into the CSS-Module-styled
+   legacy admin/public pages that also render under the shared root layout.
+   Colors are mapped onto the existing --adm-* tokens from app/admin/admin.css
+   (via `@theme inline`, which keeps these as live var() references) so
+   light/dark mode and the rest of the admin palette stay in sync for free. */
+
+@import "tailwindcss/theme" theme(reference);
+@import "tailwindcss/utilities";
+
+@theme inline {
+  --color-background: var(--adm-bg);
+  --color-foreground: var(--adm-text);
+  --color-card: var(--adm-surface);
+  --color-card-foreground: var(--adm-text);
+  --color-popover: var(--adm-surface);
+  --color-popover-foreground: var(--adm-text);
+  --color-primary: var(--adm-primary);
+  --color-primary-foreground: #ffffff;
+  --color-secondary: var(--adm-primary-soft);
+  --color-secondary-foreground: var(--adm-primary);
+  --color-muted: var(--adm-primary-soft);
+  --color-muted-foreground: var(--adm-text-soft);
+  --color-accent: var(--adm-primary-soft);
+  --color-accent-foreground: var(--adm-primary);
+  --color-destructive: var(--adm-danger);
+  --color-destructive-foreground: #ffffff;
+  --color-success: var(--adm-success);
+  --color-warning: var(--adm-warning);
+  --color-border: var(--adm-border);
+  --color-input: var(--adm-border);
+  --color-ring: var(--adm-primary);
+
+  --radius-sm: calc(var(--adm-radius) - 4px);
+  --radius-md: calc(var(--adm-radius) - 2px);
+  --radius-lg: var(--adm-radius);
+  --radius-xl: calc(var(--adm-radius) + 4px);
+}

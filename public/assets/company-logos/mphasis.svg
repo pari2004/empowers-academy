@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 48" width="130" height="48">
+  
+    <!-- Mphasis -->
+    <g transform="translate(14, 11)">
+      <circle cx="12" cy="13" r="10" fill="#0072CE"/>
+      <path d="M7 17 L7 9 L12 14 L17 9 L17 17" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="30" y="19" font-family="'Space Grotesk', system-ui, sans-serif" font-size="16" font-weight="700" fill="#002855" letter-spacing="-0.3">Mphasis</text>
+    </g>
+  
+</svg>

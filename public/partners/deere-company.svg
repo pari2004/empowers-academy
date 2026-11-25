@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 90" width="340" height="90">
+  <g>
+    <!-- Green Box & Yellow Deer Icon -->
+    <rect x="10" y="10" width="70" height="70" rx="10" fill="#367C2B"/>
+    <path d="M 25 60 C 25 60, 35 45, 55 35 C 55 35, 65 30, 65 25 C 65 20, 50 25, 45 30 M 45 40 L 60 55" stroke="#FFDE00" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <text x="95" y="48" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" font-size="26" letter-spacing="2" fill="#367C2B">JOHN DEERE</text>
+  </g>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 48" width="140" height="48">
+  
+    <!-- Travelers Red Umbrella -->
+    <g transform="translate(12, 10)">
+      <path d="M4 14 C4 6 22 6 22 14 Z M13 14 L13 22 C13 24 11 24 11 23" fill="#E2231A" stroke="#E2231A" stroke-width="1.5" stroke-linejoin="round"/>
+      <text x="30" y="19" font-family="'Space Grotesk', system-ui, sans-serif" font-size="14.5" font-weight="800" fill="#111111" letter-spacing="-0.2">TRAVELERS</text>
+    </g>
+  
+</svg>

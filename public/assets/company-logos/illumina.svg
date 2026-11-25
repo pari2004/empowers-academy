@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 48" width="130" height="48">
+  
+    <!-- Illumina -->
+    <g transform="translate(14, 11)">
+      <circle cx="6" cy="13" r="2" fill="#FF7F00"/>
+      <circle cx="12" cy="8" r="2" fill="#FF7F00"/>
+      <circle cx="18" cy="13" r="2" fill="#FF7F00"/>
+      <circle cx="12" cy="18" r="2" fill="#FF7F00"/>
+      <text x="28" y="20" font-family="'Space Grotesk', system-ui, sans-serif" font-size="18" font-weight="700" fill="#111111" letter-spacing="-0.3">illumina</text>
+    </g>
+  
+</svg>

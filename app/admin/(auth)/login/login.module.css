@@ -1,0 +1,80 @@
+.wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, #0b0d12 0%, #171a35 100%);
+  padding: 24px;
+}
+
+.card {
+  width: 100%;
+  max-width: 380px;
+  background: #12151c;
+  border: 1px solid #232733;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+
+.title {
+  margin: 0 0 4px;
+  font-size: 20px;
+  color: #f2f4f7;
+}
+
+.subtitle {
+  margin: 0 0 24px;
+  font-size: 14px;
+  color: #98a2b3;
+}
+
+.label {
+  display: block;
+  font-size: 13px;
+  color: #98a2b3;
+  margin: 16px 0 6px;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #232733;
+  background: #0b0d12;
+  color: #f2f4f7;
+  font-size: 14px;
+}
+
+.input:focus {
+  outline: 2px solid #818cf8;
+  outline-offset: 1px;
+}
+
+.error {
+  margin: 16px 0 0;
+  font-size: 13px;
+  color: #f87171;
+}
+
+.button {
+  width: 100%;
+  margin-top: 24px;
+  padding: 11px;
+  border: none;
+  border-radius: 8px;
+  background: #4f46e5;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.button:not(:disabled):hover {
+  background: #4338ca;
+}

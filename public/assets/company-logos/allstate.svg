@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 48" width="130" height="48">
+  
+    <!-- Allstate Good Hands -->
+    <g transform="translate(12, 10)">
+      <circle cx="13" cy="13" r="11" fill="#0033A0"/>
+      <path d="M8 17 C8 12 12 9 15 11 C15 14 11 17 8 17 Z M18 17 C18 12 14 9 11 11 C11 14 15 17 18 17 Z" fill="#ffffff"/>
+      <text x="30" y="20" font-family="'Space Grotesk', system-ui, sans-serif" font-size="17" font-weight="800" fill="#0033A0" letter-spacing="-0.3">Allstate</text>
+    </g>
+  
+</svg>

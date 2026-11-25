@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 48" width="150" height="48">
+  
+    <!-- Tech Mahindra Overlapping Geometric Cubes -->
+    <g transform="translate(8, 11)">
+      <rect x="0" y="3" width="11" height="11" rx="2" fill="#E31B23"/>
+      <rect x="13" y="3" width="11" height="11" rx="2" fill="#E31B23"/>
+      <rect x="7" y="15" width="11" height="11" rx="2" fill="#E31B23"/>
+      <text x="32" y="14" font-family="'Space Grotesk', system-ui, sans-serif" font-size="12" font-weight="700" fill="#E31B23" letter-spacing="-0.2">Tech</text>
+      <text x="32" y="25" font-family="'Space Grotesk', system-ui, sans-serif" font-size="12" font-weight="800" fill="#E31837" letter-spacing="-0.2">Mahindra</text>
+    </g>
+  
+</svg>

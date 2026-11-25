@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 48" width="150" height="48">
+  
+    <!-- Capital One Red Boomerang Swoosh -->
+    <g transform="translate(8, 10)">
+      <text x="56" y="16" font-family="'Space Grotesk', system-ui, sans-serif" font-size="14.5" font-weight="900" font-style="italic" fill="#0B2341">Capital One</text>
+      <path d="M10 24 C30 8 80 8 110 4 C95 12 50 18 20 26 Z" fill="#D03027"/>
+    </g>
+  
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 48" width="130" height="48">
+  
+    <!-- WNS -->
+    <g transform="translate(16, 12)">
+      <text x="6" y="21" font-family="'Inter', system-ui, sans-serif" font-size="22" font-weight="900" fill="#002B49" letter-spacing="1">WNS</text>
+      <path d="M68 6 L78 14 L68 22" fill="none" stroke="#00A3E0" stroke-width="3" stroke-linecap="round"/>
+    </g>
+  
+</svg>

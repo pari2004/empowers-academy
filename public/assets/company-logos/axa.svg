@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 48" width="120" height="48">
+  
+    <!-- AXA Red Slash Box -->
+    <g transform="translate(22, 10)">
+      <rect x="2" y="2" width="24" height="24" fill="#00008F"/>
+      <line x1="2" y1="26" x2="26" y2="2" stroke="#D6001C" stroke-width="3"/>
+      <text x="14" y="19" font-family="'Arial Black', sans-serif" font-size="11" font-weight="900" fill="#ffffff" text-anchor="middle">AXA</text>
+      <text x="36" y="20" font-family="'Arial Black', sans-serif" font-size="16" font-weight="900" fill="#00008F">AXA</text>
+    </g>
+  
+</svg>

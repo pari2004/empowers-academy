@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 48" width="150" height="48">
+  
+    <!-- Boston Scientific -->
+    <g transform="translate(8, 11)">
+      <path d="M4 18 C12 8 16 22 24 12" fill="none" stroke="#003865" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="14" cy="15" r="3" fill="#C59B27"/>
+      <text x="30" y="14" font-family="'Space Grotesk', system-ui, sans-serif" font-size="11.5" font-weight="800" fill="#003865">Boston</text>
+      <text x="30" y="24" font-family="'Space Grotesk', system-ui, sans-serif" font-size="11" font-weight="700" fill="#003865">Scientific</text>
+    </g>
+  
+</svg>

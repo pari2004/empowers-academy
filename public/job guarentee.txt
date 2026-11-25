@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>180-Day Better-Offer Guarantee Agreement | Empowers Academy</title>
+<meta name="description" content="The Empowers Academy 180-Day Better-Offer Guarantee Agreement — full terms of the written guarantee covering eligibility, obligations, claims and refunds.">
+<meta name="theme-color" content="#07060F">
+
+<!-- Fonts. If your site already loads its own typeface, delete these two lines
+     and set  --ea-font: inherit;  in the :root block below. -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+
+<style>
+/* ============================================================
+   EMPOWERS ACADEMY — 180-Day Better-Offer Guarantee Agreement
+   Self-contained page styles. All rules are namespaced under
+   .ea-doc so they cannot leak into the rest of your site.
+   ============================================================ */
+:root{
+  --ea-font: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --ea-bg:        #07060F;
+  --ea-ink:       #DFDCF0;
+  --ea-ink-str:   #FFFFFF;
+  --ea-ink-mut:   #9F9BBE;
+  --ea-cyan:      #56D8F0;
+  --ea-violet:    #8B5CF6;
+  --ea-magenta:   #F02C93;
+  --ea-line:      rgba(255,255,255,.10);
+  --ea-surface:   rgba(255,255,255,.035);
+  --ea-maxw:      820px;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+
+body.ea-body{
+  margin:0;
+  background: var(--ea-bg);
+  color: var(--ea-ink);
+  font-family: var(--ea-font);
+  font-size: 16px;
+  line-height: 1.68;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- ambient background ---------- */
+.ea-bg{
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(900px 620px at 78% -6%,  rgba(109,59,245,.42), transparent 62%),
+    radial-gradient(760px 560px at 6% 32%,   rgba(34,199,232,.16), transparent 60%),
+    radial-gradient(820px 620px at 92% 82%,  rgba(230,0,126,.14),  transparent 60%),
+    linear-gradient(168deg,#0B0A1B 0%,#140E2E 40%,#0C1430 72%,#07060F 100%);
+}
+.ea-doc{ position: relative; z-index: 1; }
+
+.ea-wrap{ max-width: 1180px; margin:0 auto; padding: 0 22px; }
+
+/* ---------- hero ---------- */
+.ea-hero{ padding: 62px 0 46px; }
+.ea-logo{ width: 216px; max-width:56vw; height:auto; display:block; margin-bottom: 46px; }
+
+.ea-hero h1{
+  font-size: clamp(2.05rem, 5.4vw, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  font-weight: 700;
+  color: var(--ea-ink-str);
+  margin: 0 0 22px;
+  max-width: 15ch;
+}
+.ea-hero h1 .ea-hl{ color: var(--ea-cyan); }
+
+.ea-org{
+  font-size: .96rem; font-weight: 600; letter-spacing: .07em;
+  color: var(--ea-ink-str); margin: 0 0 8px; text-transform: uppercase;
+}
+.ea-contact{ margin: 0 0 34px; color: var(--ea-ink-mut); font-size: .93rem; }
+.ea-contact a{ color: var(--ea-ink-mut); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.18); }
+.ea-contact a:hover{ color: var(--ea-cyan); border-bottom-color: var(--ea-cyan); }
+.ea-contact .ea-sep{ opacity:.4; padding: 0 .5em; }
+
+.ea-promise{
+  max-width: 640px;
+  background: rgba(126,90,240,.13);
+  border: 1px solid rgba(150,120,255,.34);
+  border-left: 3px solid var(--ea-violet);
+  border-radius: 14px;
+  padding: 26px 28px;
+}
+.ea-promise .ea-lbl{
+  font-size: .68rem; font-weight: 600; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--ea-cyan); margin-bottom: 12px;
+}
+.ea-promise p{ margin:0; color:#E7E4F7; }
+.ea-promise strong{ color: var(--ea-ink-str); font-weight: 600; }
+
+.ea-updated{
+  margin-top: 34px; padding-top: 20px;
+  border-top: 1px solid var(--ea-line);
+  font-size: .85rem; color: var(--ea-ink-mut);
+}
+.ea-updated b{ color: var(--ea-ink-str); font-weight: 600; }
+
+/* ---------- layout: contents + document ---------- */
+.ea-main{
+  display: grid;
+  grid-template-columns: minmax(0,1fr);
+  gap: 44px;
+  padding-bottom: 90px;
+}
+@media (min-width: 1060px){
+  .ea-main{ grid-template-columns: 250px minmax(0,1fr); gap: 56px; align-items:start; }
+}
+
+.ea-toc{
+  border: 1px solid var(--ea-line);
+  background: var(--ea-surface);
+  border-radius: 14px;
+  padding: 6px 18px;
+}
+@media (min-width: 1060px){
+  .ea-toc{ position: sticky; top: 24px; max-height: calc(100vh - 48px); overflow-y: auto; padding: 20px 18px; }
+  .ea-toc summary{ display:none; }
+}
+.ea-toc summary{
+  cursor: pointer; list-style: none; padding: 14px 0;
+  font-size: .74rem; font-weight: 600; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--ea-cyan);
+}
+.ea-toc summary::-webkit-details-marker{ display:none; }
+.ea-toc summary::after{ content:" ▾"; }
+.ea-toc[open] summary::after{ content:" ▴"; }
+.ea-toc h2{
+  font-size: .72rem; font-weight: 600; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--ea-cyan);
+  margin: 0 0 14px; display: none;
+}
+@media (min-width: 1060px){ .ea-toc h2{ display:block; } }
+.ea-toc ol{ list-style:none; margin:0; padding: 0 0 14px; counter-reset: eatoc; }
+.ea-toc li{ margin: 0; }
+.ea-toc a{
+  display: block; padding: 5px 0 5px 30px; position: relative;
+  font-size: .82rem; line-height: 1.45; color: var(--ea-ink-mut);
+  text-decoration: none; border-radius: 6px;
+}
+.ea-toc a::before{
+  counter-increment: eatoc; content: counter(eatoc);
+  position: absolute; left: 0; top: 5px;
+  font-size: .72rem; font-variant-numeric: tabular-nums; color: rgba(255,255,255,.32);
+}
+.ea-toc a:hover{ color: var(--ea-ink-str); }
+.ea-toc a:hover::before{ color: var(--ea-cyan); }
+
+/* ---------- clauses ---------- */
+.ea-clauses{ max-width: var(--ea-maxw); }
+.ea-clauses > section{ scroll-margin-top: 24px; }
+
+.ea-sec{
+  display: flex; align-items: baseline; gap: 12px;
+  font-size: 1rem; font-weight: 600; letter-spacing: .04em;
+  text-transform: uppercase; color: var(--ea-ink-str);
+  background: linear-gradient(100deg,#1A1236 0%,#33206B 52%,#4A2597 100%);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 10px;
+  padding: 13px 18px;
+  margin: 46px 0 20px;
+}
+.ea-clauses > section:first-child .ea-sec{ margin-top: 0; }
+.ea-sec .ea-n{ color: var(--ea-cyan); font-weight: 700; }
+
+.ea-clauses h3{
+  font-size: 1rem; font-weight: 600; color: var(--ea-ink-str);
+  margin: 28px 0 8px; display: flex; align-items: center; gap: 10px;
+}
+.ea-clauses h3::before{
+  content:""; width: 16px; height: 3px; border-radius: 3px; flex: none;
+  background: linear-gradient(90deg, var(--ea-magenta), var(--ea-violet));
+}
+.ea-clauses h4{
+  font-size: .95rem; font-weight: 600; color: #B69CFF;
+  margin: 22px 0 6px;
+}
+.ea-clauses p{ margin: 0 0 14px; }
+.ea-clauses strong{ color: var(--ea-ink-str); font-weight: 600; }
+
+.ea-clauses ul{ list-style: none; margin: 0 0 18px; padding: 0; }
+.ea-clauses ul li{ position: relative; padding-left: 24px; margin-bottom: 9px; }
+.ea-clauses ul li::before{
+  content:""; position: absolute; left: 2px; top: .62em;
+  width: 7px; height: 7px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--ea-cyan), var(--ea-violet));
+}
+
+.ea-call{
+  background: rgba(126,90,240,.10);
+  border: 1px solid rgba(150,120,255,.26);
+  border-left: 3px solid var(--ea-violet);
+  border-radius: 12px;
+  padding: 20px 22px 8px;
+  margin: 20px 0 22px;
+}
+.ea-call.ea-key{
+  background: rgba(230,0,126,.09);
+  border-color: rgba(240,44,147,.30);
+  border-left-color: var(--ea-magenta);
+}
+.ea-call p:last-child{ margin-bottom: 14px; }
+
+/* ---------- tables ---------- */
+.ea-table-scroll{ overflow-x: auto; margin: 0 0 22px; -webkit-overflow-scrolling: touch; }
+.ea-table{
+  width: 100%; min-width: 480px;
+  border-collapse: separate; border-spacing: 0;
+  border: 1px solid var(--ea-line); border-radius: 12px; overflow: hidden;
+}
+.ea-table th{
+  text-align: left; font-size: .93rem; font-weight: 600; color: var(--ea-ink-str);
+  background: linear-gradient(100deg,#1A1236,#3A2380);
+  padding: 13px 18px;
+  border-bottom: 1px solid var(--ea-line);
+}
+.ea-table th + th{ border-left: 1px solid var(--ea-line); }
+.ea-table td{
+  padding: 16px 18px; vertical-align: top; font-size: .93rem;
+  background: rgba(255,255,255,.022);
+  border-top: 1px solid var(--ea-line);
+}
+.ea-table td + td{ border-left: 1px solid var(--ea-line); }
+.ea-table tr:first-child td{ border-top: none; }
+.ea-kv div{ margin-bottom: 3px; }
+.ea-kv .ea-k{ color: var(--ea-ink-mut); }
+.ea-table a{ color: inherit; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.18); }
+.ea-table a:hover{ color: var(--ea-cyan); border-bottom-color: var(--ea-cyan); }
+
+.ea-sign td{ padding-top: 30px; padding-bottom: 30px; }
+.ea-sign p{ margin: 0 0 26px; white-space: nowrap; }
+.ea-sign p:last-child{ margin-bottom: 0; }
+.ea-rule{
+  display: inline-block; width: min(240px, 46vw);
+  border-bottom: 1px solid rgba(255,255,255,.30);
+  margin-left: 8px;
+}
+
+.ea-closing{
+  margin-top: 40px; padding-top: 22px;
+  border-top: 1px solid var(--ea-line);
+  font-size: .85rem; line-height: 1.6; color: var(--ea-ink-mut);
+}
+
+/* ---------- back to top ---------- */
+.ea-top{
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 30px; padding: 10px 18px;
+  font: inherit; font-size: .84rem; font-weight: 500;
+  color: var(--ea-ink); text-decoration: none;
+  background: var(--ea-surface);
+  border: 1px solid var(--ea-line); border-radius: 40px;
+}
+.ea-top:hover{ color: var(--ea-ink-str); border-color: rgba(255,255,255,.26); }
+
+/* ---------- focus + motion ---------- */
+.ea-doc a:focus-visible, .ea-toc summary:focus-visible{
+  outline: 2px solid var(--ea-cyan); outline-offset: 3px; border-radius: 4px;
+}
+html{ scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce){ html{ scroll-behavior: auto; } }
+
+/* ---------- print ---------- */
+@media print{
+  body.ea-body{ background:#fff; color:#26243A; font-size: 10pt; }
+  .ea-bg{ display:none; }
+  .ea-toc, .ea-top{ display:none !important; }
+  .ea-main{ display:block; padding-bottom:0; }
+  .ea-hero h1, .ea-org, .ea-clauses strong, .ea-clauses h3, .ea-clauses h4{ color:#141122; }
+  .ea-hero h1 .ea-hl{ color:#3A1D8A; }
+  .ea-contact, .ea-updated, .ea-closing, .ea-kv .ea-k{ color:#6B6A85; }
+  .ea-promise, .ea-call{ background:#F7F5FF; border-color:#E0D8FF; color:#26243A; }
+  .ea-promise .ea-lbl{ color:#6D3BF5; }
+  .ea-sec{ background:#2E1C63 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; page-break-after: avoid; }
+  .ea-table th{ background:#2E1C63 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .ea-table td{ background:#fff; border-color:#E6E3F2; }
+  .ea-clauses > section{ page-break-inside: auto; }
+  .ea-table, .ea-call{ page-break-inside: avoid; }
+}
+</style>
+</head>
+
+<body class="ea-body">
+<div class="ea-bg" aria-hidden="true"></div>
+<div class="ea-doc">
+
+  <!-- ================= HERO ================= -->
+  <header class="ea-hero" id="top">
+    <div class="ea-wrap">
+      <!-- Update this path if your logo lives elsewhere -->
+      <img class="ea-logo" src="/logo.png" alt="Empowers Academy" width="216" height="45">
+
+      <h1><span class="ea-hl">180-Day</span> Better-Offer Guarantee Agreement</h1>
+
+      <p class="ea-org">Empowers Academy</p>
+      <p class="ea-contact">
+        <a href="https://www.empowersacademy.com">www.empowersacademy.com</a><span class="ea-sep">|</span>
+        <a href="tel:+918151876077">+91 8151876077</a><span class="ea-sep">|</span>
+        <a href="mailto:contact@empowersacademy.com">contact@empowersacademy.com</a>
+      </p>
+
+      <div class="ea-promise">
+        <div class="ea-lbl">180-Day Better-Offer Guarantee</div>
+        <p>If an eligible Student satisfies all applicable requirements and does not receive a qualifying Better Offer within <strong>180 calendar days from the Class/Program Commencement Date</strong>, the Student may claim a <strong>full refund of 100% of the applicable program fees actually paid</strong>, subject to this Agreement.</p>
+      </div>
+
+      <p class="ea-updated"><b>Last updated:</b> September 2, 2026</p>
+    </div>
+  </header>
+
+  <!-- ================= BODY ================= -->
+  <div class="ea-wrap">
+    <div class="ea-main">
+
+      <!-- ---------- contents ---------- -->
+      <nav class="ea-toc" aria-label="Contents">
+        <details open>
+          <summary>Contents</summary>
+          <div class="ea-toc-body">
+            <h2>Contents</h2>
+            <ol>
+              <li><a href="#s1">Parties</a></li>
+              <li><a href="#s2">Purpose of the Agreement</a></li>
+              <li><a href="#s3">The 180-Day Better-Offer Guarantee</a></li>
+              <li><a href="#s4">Guarantee Commencement Date</a></li>
+              <li><a href="#s5">Eligibility for the Guarantee</a></li>
+              <li><a href="#s6">Student Responsibilities</a></li>
+              <li><a href="#s7">Baseline Employment Position</a></li>
+              <li><a href="#s8">Freshers and Students Without Existing Employment</a></li>
+              <li><a href="#s9">What Constitutes a &ldquo;Better Offer&rdquo;</a></li>
+              <li><a href="#s10">Valid Employment Offer</a></li>
+              <li><a href="#s11">Placement Support Provided by Empowers Academy</a></li>
+              <li><a href="#s12">No Guarantee of a Specific Employer</a></li>
+              <li><a href="#s13">Student Rejection of Opportunities</a></li>
+              <li><a href="#s14">Guarantee Claim</a></li>
+              <li><a href="#s15">Refund</a></li>
+              <li><a href="#s16">Claim Review Process</a></li>
+              <li><a href="#s17">Events That May Disqualify the Guarantee</a></li>
+              <li><a href="#s18">Student-Initiated Withdrawal</a></li>
+              <li><a href="#s19">Employment Obtained Independently</a></li>
+              <li><a href="#s20">Post-Guarantee Career Support</a></li>
+              <li><a href="#s21">Intellectual Property</a></li>
+              <li><a href="#s22">Confidentiality</a></li>
+              <li><a href="#s23">Data Protection and Privacy</a></li>
+              <li><a href="#s24">Relationship with Website Terms</a></li>
+              <li><a href="#s25">Force Majeure</a></li>
+              <li><a href="#s26">Limitation of Liability</a></li>
+              <li><a href="#s27">No Assurance Beyond the Guarantee</a></li>
+              <li><a href="#s28">Dispute Resolution</a></li>
+              <li><a href="#s29">Governing Law</a></li>
+              <li><a href="#s30">Severability</a></li>
+              <li><a href="#s31">Amendments</a></li>
+              <li><a href="#s32">Electronic Acceptance</a></li>
+              <li><a href="#s33">Entire Agreement</a></li>
+              <li><a href="#s34">Student Declaration</a></li>
+              <li><a href="#s35">Authorized Signing Authorities</a></li>
+            </ol>
+          </div>
+        </details>
+      </nav>
+
+      <!-- ---------- clauses ---------- -->
+      <article class="ea-clauses">
+
+        <section id="s1">
+          <h2 class="ea-sec"><span class="ea-n">1.</span> Parties</h2>
+          <div class="ea-table-scroll">
+            <table class="ea-table">
+              <tr>
+                <th style="width:50%">Empowers Academy</th>
+                <th style="width:50%">Student / Learner</th>
+              </tr>
+              <tr>
+                <td>
+                  <div class="ea-kv">
+                    <div><span class="ea-k">Website:</span> <a href="https://www.empowersacademy.com">www.empowersacademy.com</a></div>
+                    <div><span class="ea-k">Phone:</span> <a href="tel:+918151876077">+91 8151876077</a></div>
+                    <div><span class="ea-k">Email:</span> <a href="mailto:contactusempowersacademy@gmail.com">contactusempowersacademy@gmail.com</a></div>
+                    <div><span class="ea-k">Location:</span> Bengaluru, Karnataka, India</div>
+                  </div>
+                </td>
+                <td>The Student's identity and enrollment information shall be captured through the applicable Empowers Academy registration/enrollment process and maintained in the Company's records.</td>
+              </tr>
+            </table>
+          </div>
+        </section>
+
+        <section id="s2">
+          <h2 class="ea-sec"><span class="ea-n">2.</span> Purpose of the Agreement</h2>
+          <p>This 180-Day Better-Offer Guarantee Agreement (&ldquo;Agreement&rdquo;) sets out the terms and conditions governing the career and placement guarantee offered by Empowers Academy (&ldquo;Empowers Academy&rdquo;, &ldquo;Company&rdquo;, &ldquo;We&rdquo;, &ldquo;Us&rdquo; or &ldquo;Our&rdquo;) to an eligible learner (&ldquo;Student&rdquo;, &ldquo;Learner&rdquo;, &ldquo;You&rdquo; or &ldquo;Your&rdquo;) enrolled in an eligible Empowers Academy program.</p>
+          <p>This Agreement is intended to be read together with the Empowers Academy Terms and Conditions, Privacy Policy, applicable enrollment terms and other policies expressly applicable to the Student.</p>
+          <p>By accepting this Agreement electronically, signing it, checking an acceptance box, or otherwise confirming acceptance before enrollment or payment, the Student acknowledges that they have read, understood and agreed to be bound by this Agreement.</p>
+        </section>
+
+        <section id="s3">
+          <h2 class="ea-sec"><span class="ea-n">3.</span> The 180-Day Better-Offer Guarantee</h2>
+          <p>Empowers Academy provides eligible Students with a 180-day Better-Offer Guarantee.</p>
+          <div class="ea-call">
+            <p><strong>Guarantee Period:</strong> exactly 180 calendar days from the official Class/Program Commencement Date recorded by Empowers Academy.</p>
+            <p><strong>Refund commitment:</strong> If the Student satisfies all eligibility requirements and obligations under this Agreement but does not receive a qualifying Better Offer within the Guarantee Period, Empowers Academy shall provide a full refund of 100% of the applicable program fees actually paid by the Student, subject to the terms of this Agreement.</p>
+          </div>
+          <p>The Guarantee is conditional upon active participation by the Student in the academic, career-development and placement process.</p>
+          <p><strong>The Guarantee does not mean guaranteed employment with a particular company.</strong> It applies to the defined Better-Offer outcome described in this Agreement.</p>
+        </section>
+
+        <section id="s4">
+          <h2 class="ea-sec"><span class="ea-n">4.</span> Guarantee Commencement Date</h2>
+          <p>The &ldquo;Guarantee Commencement Date&rdquo; means the official Class or Program Commencement Date recorded by Empowers Academy for the applicable Student.</p>
+          <p><strong>The 180-day Guarantee Period begins on the Guarantee Commencement Date and runs for 180 calendar days.</strong></p>
+          <p>The period shall be calculated using calendar days and shall not be interpreted as six months from program completion. The Class or Program Commencement Date recorded in Empowers Academy's enrollment records shall be treated as the official date for administrative purposes.</p>
+        </section>
+
+        <section id="s5">
+          <h2 class="ea-sec"><span class="ea-n">5.</span> Eligibility for the Guarantee</h2>
+          <ul>
+            <li>Are enrolled in a program specifically designated by Empowers Academy as covered by the 180-Day Better-Offer Guarantee;</li>
+            <li>Have accepted this Agreement before or at the time required by Empowers Academy;</li>
+            <li>Have provided accurate and complete information during enrollment;</li>
+            <li>Have complied with the applicable program requirements;</li>
+            <li>Have maintained the minimum attendance requirement specified for the applicable program;</li>
+            <li>Have completed required assignments, projects, assessments and other academic requirements;</li>
+            <li>Have actively participated in career development and placement activities;</li>
+            <li>Have complied with reasonable instructions provided by the career and placement team;</li>
+            <li>Have remained reasonably responsive to Empowers Academy during the Guarantee Period; and</li>
+            <li>Have complied with all other applicable terms of this Agreement.</li>
+          </ul>
+        </section>
+
+        <section id="s6">
+          <h2 class="ea-sec"><span class="ea-n">6.</span> Student Responsibilities</h2>
+
+          <h3>6.1 Attendance</h3>
+          <p>Unless otherwise specified in writing for a particular program, the minimum required attendance shall be <strong>75%</strong>. The Student shall maintain the applicable attendance requirement throughout the program.</p>
+
+          <h3>6.2 Academic Completion</h3>
+          <ul>
+            <li>Complete assignments within prescribed timelines;</li>
+            <li>Complete required projects and capstone work;</li>
+            <li>Participate in assessments;</li>
+            <li>Participate in mentor feedback and review sessions where applicable.</li>
+          </ul>
+
+          <h3>6.3 Career and Placement Participation</h3>
+          <ul>
+            <li>Resume preparation and reviews;</li>
+            <li>LinkedIn/profile optimization;</li>
+            <li>Portfolio and project development;</li>
+            <li>Mock interviews;</li>
+            <li>Technical and behavioural interview preparation;</li>
+            <li>Career mentoring;</li>
+            <li>Job opportunity sharing and hiring-partner introductions;</li>
+            <li>Placement drives and interview coordination;</li>
+            <li>Other reasonable career-development activities offered by Empowers Academy.</li>
+          </ul>
+
+          <h3>6.4 Job Applications and Interviews</h3>
+          <p>Where reasonably requested, the Student agrees to actively consider and apply for relevant employment opportunities communicated by Empowers Academy, attend scheduled interviews and participate in the placement process. The Student shall not intentionally reject suitable opportunities solely for the purpose of attempting to trigger the refund provision.</p>
+
+          <h3>6.5 Communication and Accurate Information</h3>
+          <p>The Student shall maintain an active email address and mobile number, remain reasonably responsive, and provide accurate and up-to-date information regarding employment, compensation, job title, experience, skills, resume, interview status and job offers. False, misleading, incomplete or materially inaccurate information may result in loss of Guarantee eligibility.</p>
+        </section>
+
+        <section id="s7">
+          <h2 class="ea-sec"><span class="ea-n">7.</span> Baseline Employment Position</h2>
+          <p>To determine whether an employment opportunity qualifies as a Better Offer, Empowers Academy may establish the Student's baseline employment position before or at the beginning of the applicable program.</p>
+          <ul>
+            <li>Current job title;</li>
+            <li>Current employer;</li>
+            <li>Current annual compensation or CTC;</li>
+            <li>Employment type;</li>
+            <li>Relevant role responsibilities;</li>
+            <li>Other material employment terms;</li>
+          </ul>
+          <p>The Student shall provide documentary evidence reasonably requested by Empowers Academy to establish the baseline, where applicable.</p>
+        </section>
+
+        <section id="s8">
+          <h2 class="ea-sec"><span class="ea-n">8.</span> Freshers and Students Without Existing Employment</h2>
+          <div class="ea-call ea-key">
+            <p><strong>For eligible freshers who do not have an existing employment position or compensation baseline, the minimum qualifying employment package under the Guarantee shall be &#8377;5,00,000 per annum (5 LPA).</strong></p>
+          </div>
+          <p>For this Agreement, an eligible fresher generally means a Student who does not have a current employment position from which a compensation or role baseline can reasonably be established.</p>
+          <p>The qualifying employment offer must otherwise satisfy the requirements of this Agreement and must be a genuine employment opportunity.</p>
+        </section>
+
+        <section id="s9">
+          <h2 class="ea-sec"><span class="ea-n">9.</span> What Constitutes a &ldquo;Better Offer&rdquo;</h2>
+          <p>A &ldquo;Better Offer&rdquo; means a genuine employment offer that represents a measurable improvement over the Student's established baseline employment position. A Better Offer may qualify where it provides an improvement in one or more of the following:</p>
+          <h4>A. Compensation</h4>
+          <p>A higher annual compensation/CTC or other objectively measurable improvement in total compensation.</p>
+          <h4>B. Job Title</h4>
+          <p>A materially improved or more senior job title or designation.</p>
+          <h4>C. Role Scope</h4>
+          <p>A materially improved role involving greater responsibility, technical scope, managerial responsibility, career progression or substantially improved professional scope.</p>
+          <div class="ea-call ea-key">
+            <p><strong>For freshers:</strong> a qualifying offer must provide a minimum annual CTC of <strong>&#8377;5,00,000 (5 LPA)</strong>, subject to the remaining eligibility conditions of this Agreement.</p>
+          </div>
+        </section>
+
+        <section id="s10">
+          <h2 class="ea-sec"><span class="ea-n">10.</span> Valid Employment Offer</h2>
+          <ul>
+            <li>Be issued by a legitimate employer;</li>
+            <li>Be a genuine employment opportunity;</li>
+            <li>Be supported by written documentation such as an offer letter or equivalent document;</li>
+            <li>Be for a role reasonably related to the Student's career objective, skills or applicable program outcomes;</li>
+            <li>Not be created solely for the purpose of satisfying this Guarantee; and</li>
+            <li>Not be obtained through fraudulent, misleading or unlawful means.</li>
+          </ul>
+          <p>Empowers Academy may request reasonable documentary evidence to verify an employment offer.</p>
+        </section>
+
+        <section id="s11">
+          <h2 class="ea-sec"><span class="ea-n">11.</span> Placement Support Provided by Empowers Academy</h2>
+          <p>Subject to the applicable program structure, Empowers Academy may provide career and placement support including:</p>
+          <ul>
+            <li>Career assessment and target-role mapping;</li>
+            <li>Resume development and LinkedIn optimization;</li>
+            <li>Portfolio and project positioning;</li>
+            <li>Mock interviews and interview preparation;</li>
+            <li>Technical and behavioural interview preparation;</li>
+            <li>Career mentoring;</li>
+            <li>Job opportunity sharing;</li>
+            <li>Hiring-partner introductions;</li>
+            <li>Placement drives;</li>
+            <li>Interview coordination; and</li>
+            <li>Career guidance.</li>
+          </ul>
+        </section>
+
+        <section id="s12">
+          <h2 class="ea-sec"><span class="ea-n">12.</span> No Guarantee of a Specific Employer</h2>
+          <p>The Guarantee does not mean that Empowers Academy guarantees employment with any specific company, employer, hiring partner or organization.</p>
+          <ul>
+            <li>A specific employer;</li>
+            <li>A specific job title;</li>
+            <li>A specific location;</li>
+            <li>A specific work arrangement;</li>
+            <li>A specific industry;</li>
+            <li>Selection in any particular interview process;</li>
+            <li>Any career outcome beyond the specific Guarantee described in this Agreement.</li>
+          </ul>
+        </section>
+
+        <section id="s13">
+          <h2 class="ea-sec"><span class="ea-n">13.</span> Student Rejection of Opportunities</h2>
+          <p>The Student shall not unreasonably reject, ignore or withdraw from relevant employment opportunities introduced or facilitated through Empowers Academy.</p>
+          <p>If the Student repeatedly rejects suitable opportunities without reasonable justification, fails to attend scheduled interviews, becomes unresponsive, or otherwise deliberately prevents the placement process from progressing, Empowers Academy may determine that the Student is no longer eligible for the Guarantee.</p>
+          <p>The Student will be given reasonable notice and an opportunity to provide an explanation before the Guarantee is terminated on this basis.</p>
+        </section>
+
+        <section id="s14">
+          <h2 class="ea-sec"><span class="ea-n">14.</span> Guarantee Claim</h2>
+          <p>If the Student satisfies all eligibility requirements, completes the applicable academic requirements, satisfies the attendance requirement, participates actively in the placement process, complies with this Agreement, remains reasonably responsive, and does not receive a qualifying Better Offer within the 180-day Guarantee Period, the Student may submit a Guarantee Claim.</p>
+          <p>The Guarantee Claim must be submitted in writing within <strong>15 calendar days</strong> after expiry of the 180-day Guarantee Period. The claim must include any information or documents reasonably required by Empowers Academy to verify eligibility.</p>
+        </section>
+
+        <section id="s15">
+          <h2 class="ea-sec"><span class="ea-n">15.</span> Refund</h2>
+          <div class="ea-call ea-key">
+            <p><strong>FULL REFUND:</strong> If a Guarantee Claim is approved, Empowers Academy shall provide a full refund of <strong>100% of the applicable program fees actually paid by the Student</strong> for the covered program, subject to the terms of this Agreement.</p>
+          </div>
+          <p>The refund is subject to the Student having satisfied all eligibility requirements and obligations under this Agreement.</p>
+          <p>The refund shall not include amounts that were not actually paid to Empowers Academy.</p>
+        </section>
+
+        <section id="s16">
+          <h2 class="ea-sec"><span class="ea-n">16.</span> Claim Review Process</h2>
+          <p>Upon receiving a Guarantee Claim, Empowers Academy may review:</p>
+          <ul>
+            <li>Attendance and academic completion;</li>
+            <li>Assignment, project and assessment records;</li>
+            <li>Placement participation and interview participation;</li>
+            <li>Job applications and communication history;</li>
+            <li>Employment and baseline records;</li>
+            <li>Job offers received and reasons for rejection of opportunities; and</li>
+            <li>Other information reasonably necessary to determine eligibility.</li>
+          </ul>
+          <p>Empowers Academy shall communicate the outcome of the claim after completing its review.</p>
+        </section>
+
+        <section id="s17">
+          <h2 class="ea-sec"><span class="ea-n">17.</span> Events That May Disqualify the Guarantee</h2>
+          <ul>
+            <li>Providing materially false or misleading information;</li>
+            <li>Using fraudulent documentation;</li>
+            <li>Failing to meet the applicable attendance requirement;</li>
+            <li>Failing to complete required academic work;</li>
+            <li>Repeatedly refusing reasonable placement support;</li>
+            <li>Repeatedly failing to attend scheduled interviews without reasonable justification;</li>
+            <li>Being deliberately unresponsive to placement communications;</li>
+            <li>Unreasonably refusing suitable employment opportunities;</li>
+            <li>Withdrawing from the applicable program before satisfying required Guarantee conditions;</li>
+            <li>Breaching this Agreement or applicable Empowers Academy terms;</li>
+            <li>Engaging in misconduct, fraud or unlawful activity connected to the Guarantee; or</li>
+            <li>Failing to provide reasonable documentation required to verify eligibility.</li>
+          </ul>
+        </section>
+
+        <section id="s18">
+          <h2 class="ea-sec"><span class="ea-n">18.</span> Student-Initiated Withdrawal</h2>
+          <p>If the Student voluntarily withdraws from the applicable program before satisfying the required program and Guarantee conditions, the Student's eligibility for the Better-Offer Guarantee may cease.</p>
+          <p>Any refund associated with program withdrawal shall be governed by the applicable refund policy and enrollment terms and shall not automatically arise under the 180-Day Better-Offer Guarantee.</p>
+        </section>
+
+        <section id="s19">
+          <h2 class="ea-sec"><span class="ea-n">19.</span> Employment Obtained Independently</h2>
+          <p>The Guarantee does not require that every qualifying Better Offer be directly sourced by Empowers Academy. However, the Student must disclose any employment offer obtained during the Guarantee Period when reasonably requested. Empowers Academy may verify whether such employment constitutes a qualifying Better Offer under this Agreement.</p>
+        </section>
+
+        <section id="s20">
+          <h2 class="ea-sec"><span class="ea-n">20.</span> Post-Guarantee Career Support</h2>
+          <p>The expiry of the 180-day Guarantee Period does not necessarily terminate other benefits or alumni services that may be offered by Empowers Academy, subject to the applicable program terms.</p>
+        </section>
+
+        <section id="s21">
+          <h2 class="ea-sec"><span class="ea-n">21.</span> Intellectual Property</h2>
+          <p>All course materials, training content, recordings, presentations, assignments, study resources, tools, frameworks, templates and other proprietary materials provided by Empowers Academy remain the intellectual property of Empowers Academy or its licensors.</p>
+          <p>The Student shall not reproduce, distribute, resell, publish, commercially exploit or share such materials with third parties without prior written permission.</p>
+        </section>
+
+        <section id="s22">
+          <h2 class="ea-sec"><span class="ea-n">22.</span> Confidentiality</h2>
+          <p>Both parties agree to maintain reasonable confidentiality regarding confidential, proprietary or sensitive information obtained through their relationship. This includes confidential business information, student information, hiring-partner information, proprietary materials and non-public operational information.</p>
+          <p>This obligation shall survive termination or expiry of this Agreement to the extent permitted by applicable law.</p>
+        </section>
+
+        <section id="s23">
+          <h2 class="ea-sec"><span class="ea-n">23.</span> Data Protection and Privacy</h2>
+          <p>Empowers Academy may collect and process Student information for enrollment, program administration, career support, placement assistance, communication, verification of Guarantee eligibility, processing Guarantee Claims and legal/regulatory compliance.</p>
+          <p>The collection and processing of personal information shall be governed by the Empowers Academy Privacy Policy.</p>
+        </section>
+
+        <section id="s24">
+          <h2 class="ea-sec"><span class="ea-n">24.</span> Relationship with Website Terms</h2>
+          <p>This Agreement forms the specific agreement governing the 180-Day Better-Offer Guarantee. The Empowers Academy Terms and Conditions, Privacy Policy, enrollment terms and other applicable policies may apply in addition to this Agreement.</p>
+          <p>If there is a conflict specifically relating to the Better-Offer Guarantee, the provisions of this Agreement shall govern that specific matter, subject to applicable law.</p>
+        </section>
+
+        <section id="s25">
+          <h2 class="ea-sec"><span class="ea-n">25.</span> Force Majeure</h2>
+          <p>Neither party shall be liable for delay or failure to perform obligations caused by circumstances beyond reasonable control, including natural disasters, government restrictions, widespread infrastructure failures, pandemics, war, civil disturbances or other events of force majeure. Where reasonably possible, Empowers Academy may reschedule affected sessions, interviews, placement activities or other services.</p>
+        </section>
+
+        <section id="s26">
+          <h2 class="ea-sec"><span class="ea-n">26.</span> Limitation of Liability</h2>
+          <p>To the maximum extent permitted by applicable law, Empowers Academy's liability under this Agreement shall be limited to the obligations expressly stated in this Agreement. Nothing in this Agreement shall exclude or limit any liability that cannot legally be excluded or limited under applicable law.</p>
+        </section>
+
+        <section id="s27">
+          <h2 class="ea-sec"><span class="ea-n">27.</span> No Assurance Beyond the Guarantee</h2>
+          <p>The Better-Offer Guarantee is limited to the specific terms expressly stated in this Agreement. Except for the refund obligation expressly provided under the Guarantee, Empowers Academy does not guarantee any particular career path, employer, salary beyond the applicable Guarantee criteria, designation, promotion, geographic location, employment duration or long-term career outcome.</p>
+        </section>
+
+        <section id="s28">
+          <h2 class="ea-sec"><span class="ea-n">28.</span> Dispute Resolution</h2>
+          <p>The parties shall first attempt to resolve any dispute arising out of or relating to this Agreement through good-faith discussions. A Student wishing to raise a dispute shall first contact Empowers Academy through its official contact channels and provide reasonable details of the dispute.</p>
+          <p>If the dispute cannot be resolved through mutual discussion within <strong>30 days</strong>, it may be referred to arbitration in accordance with the Arbitration and Conciliation Act, 1996, subject to applicable law.</p>
+          <p><strong>Seat/Venue:</strong> Bengaluru, Karnataka, India.</p>
+        </section>
+
+        <section id="s29">
+          <h2 class="ea-sec"><span class="ea-n">29.</span> Governing Law</h2>
+          <p>This Agreement shall be governed by and construed in accordance with the laws applicable in India, subject to applicable mandatory consumer protection and other statutory rights.</p>
+        </section>
+
+        <section id="s30">
+          <h2 class="ea-sec"><span class="ea-n">30.</span> Severability</h2>
+          <p>If any provision of this Agreement is held to be invalid, unlawful or unenforceable, that provision shall be modified or interpreted to the minimum extent necessary to make it enforceable, and the remaining provisions shall continue in effect to the extent permitted by law.</p>
+        </section>
+
+        <section id="s31">
+          <h2 class="ea-sec"><span class="ea-n">31.</span> Amendments</h2>
+          <p>Empowers Academy may update this Agreement from time to time. However, any material change to the Guarantee applicable to a Student who has already accepted the Guarantee Agreement shall not retroactively reduce or remove that Student's existing Guarantee rights unless otherwise agreed or required by law.</p>
+        </section>
+
+        <section id="s32">
+          <h2 class="ea-sec"><span class="ea-n">32.</span> Electronic Acceptance</h2>
+          <p>The Student agrees that electronic acceptance of this Agreement, including clicking an &ldquo;I Agree&rdquo; button, checking an acceptance checkbox, signing electronically, using an approved digital-signature process, or other legally recognized electronic means, constitutes valid acceptance of this Agreement to the extent permitted by applicable law.</p>
+          <p>Electronic records of acceptance may be retained by Empowers Academy as evidence of acceptance.</p>
+        </section>
+
+        <section id="s33">
+          <h2 class="ea-sec"><span class="ea-n">33.</span> Entire Agreement</h2>
+          <p>This Agreement, together with the applicable enrollment terms and documents expressly incorporated by reference, constitutes the understanding between Empowers Academy and the Student regarding the 180-Day Better-Offer Guarantee. Any specific written commercial terms agreed with a Student for their applicable program shall form part of the Student's enrollment documentation.</p>
+        </section>
+
+        <section id="s34">
+          <h2 class="ea-sec"><span class="ea-n">34.</span> Student Declaration</h2>
+          <p>By accepting this Agreement, the Student confirms that:</p>
+          <ul>
+            <li>I have read and understood the 180-Day Better-Offer Guarantee Agreement.</li>
+            <li>I understand that the Guarantee is subject to eligibility requirements and my continued participation.</li>
+            <li>I have provided accurate information.</li>
+            <li>I understand what constitutes a Better Offer.</li>
+            <li>I agree to participate actively in the academic and placement process.</li>
+            <li>I understand that I must comply with attendance, academic and placement requirements.</li>
+            <li>I understand that the Guarantee Period is exactly 180 calendar days from the Class/Program Commencement Date.</li>
+            <li>I understand the conditions governing a refund claim.</li>
+            <li>I agree to the processing of my information in accordance with the Empowers Academy Privacy Policy.</li>
+            <li>I agree to be legally bound by this Agreement upon acceptance.</li>
+          </ul>
+        </section>
+
+        <section id="s35">
+          <h2 class="ea-sec"><span class="ea-n">35.</span> Authorized Signing Authorities</h2>
+          <p>The following representatives are authorized to execute this Agreement on behalf of Empowers Academy:</p>
+          <div class="ea-table-scroll">
+            <table class="ea-table">
+              <tr>
+                <th style="width:50%">Yashwanth DV</th>
+                <th style="width:50%">Abhishek C</th>
+              </tr>
+              <tr>
+                <td>Founder &amp; CEO<br>Empowers Academy</td>
+                <td>Co-Founder<br>Empowers Academy</td>
+              </tr>
+              <tr class="ea-sign">
+                <td>
+                  <p>Signature:<span class="ea-rule"></span></p>
+                  <p>Date:<span class="ea-rule"></span></p>
+                </td>
+                <td>
+                  <p>Signature:<span class="ea-rule"></span></p>
+                  <p>Date:<span class="ea-rule"></span></p>
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="ea-call">
+            <p><strong>Student Electronic Acceptance</strong></p>
+            <p>The Student may accept this Agreement electronically through the applicable Empowers Academy enrollment process. The Student's acceptance, together with the enrollment information maintained by Empowers Academy, shall constitute the applicable record of acceptance.</p>
+          </div>
+        </section>
+
+        <p class="ea-closing">This document is intended to serve as the common 180-Day Better-Offer Guarantee Agreement for eligible Empowers Academy programs. It should be read together with the Company's Terms and Conditions and Privacy Policy.</p>
+
+        <a class="ea-top" href="#top">&uarr; Back to top</a>
+      </article>
+
+    </div>
+  </div>
+
+</div>
+<script>
+/* The contents list is open on desktop and collapsed on small screens.
+   With JS disabled it simply stays open everywhere. */
+(function(){
+  var d = document.querySelector('.ea-toc details');
+  if(!d) return;
+  var mq = window.matchMedia('(min-width: 1060px)');
+  var sync = function(){ d.open = mq.matches; };
+  sync();
+  mq.addEventListener ? mq.addEventListener('change', sync) : mq.addListener(sync);
+})();
+</script>
+</body>
+</html>
